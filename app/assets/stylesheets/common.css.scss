@@ -1,0 +1,24 @@
+body {
+  background: rgb(231, 238, 243);
+  margin: 20px 0;
+}
+
+#content {
+  margin: 20px;
+}
+
+#header {
+  #title {
+    text-align: right;
+  }
+  h1 {
+    margin: 0;
+  }
+  #username {
+    padding-top: 15px;
+  }
+}
+
+.row {
+  margin: 0;
+}

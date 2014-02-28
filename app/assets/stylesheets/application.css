@@ -13,15 +13,3 @@
  *= require_tree .
 */
 
-body {
-    margin: 20px;
-    background: rgb(231, 238, 243);
-}
-
-#header {
-    text-align: center;
-}
-
-.row {
-    margin: 0;
-}
