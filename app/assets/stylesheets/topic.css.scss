@@ -1,0 +1,19 @@
+#register_new_topic {
+  margin-bottom: 20px;
+}
+
+#error_explanation {
+  color: red;
+}
+
+.block {
+  padding: 10px 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  border: 1px solid black;
+
+  span {
+    word-wrap: break-word;
+    text-align: justify;
+  }
+}

@@ -31,6 +31,8 @@ gem "bootstrap-sass", "~> 3.0.3.0"
 
 gem "rubycas-client"
 
+gem 'pry'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

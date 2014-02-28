@@ -1,0 +1,35 @@
+<%= form_for :topic, url: topics_path do |f| %>
+    <% if @topic.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@topic.errors.count, "error") %> prohibited
+            this topic from being saved:</h2>
+          <ul>
+            <% @topic.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class='form-horizontal'>
+      <div class='form-group'>
+        <%= f.label :title, class: 'col-lg-1 control-label' %>
+        <div class='col-lg-4'>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, class: 'col-lg-1 control-label' %>
+        <div class='col-lg-4'>
+          <%= f.text_area :description, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-offset-1">
+        <%= f.submit 'Register Topic', class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>
