@@ -24,4 +24,11 @@ class TopicsController < ApplicationController
     end
   end
 
+  def vote_for
+    topic = Topic.find(params[:id])
+    if topic.update_attribute(:votes,  topic.votes += 1)
+      render text: topic.votes
+    end
+  end
+
 end

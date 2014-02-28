@@ -6,6 +6,19 @@
         <h4 class="modal-title">Topic Details</h4>
       </div>
       <div class="modal-body">
+
+        <input type="hidden" id="topic_id" value="<%= @topic.id %>"/>
+
+        <div class="alert alert-success">
+          Thanks for your vote
+        </div>
+
+        <div class="row">
+          <div class="pull-right">
+            <span id="no_of_votes"><%= @topic.votes %></span>
+          </div>
+        </div>
+
         <div class="row">
           <label class="col-lg-3">Title:</label>
 
@@ -16,6 +29,7 @@
 
         <div class="row">
           <label class="col-lg-3">Speakers:</label>
+
           <div class="col-lg-9">
             <% @topic.speakers.each do |speaker| %>
                 <%= speaker.name %>
@@ -33,6 +47,7 @@
 
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="vote">Vote</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>

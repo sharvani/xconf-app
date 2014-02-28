@@ -4,6 +4,12 @@ XconfApp::Application.routes.draw do
 
 
   match '/login/logout' , controller: 'login#logout', via: [:get, :post]
+
+  resources :topics do
+    get 'vote_for/:id', to: 'topics#vote_for', :on => :collection
+  end
+
+
   resources :speakers, :topics
 
   root 'topics#index'
