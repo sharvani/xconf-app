@@ -26,14 +26,26 @@ class TopicsController < ApplicationController
 
   def vote_for
     topic = Topic.find(params[:id])
-    if topic.speakers.pluck(:name).include?(session[:cas_user])
-      render text: "You Can't vote for your own topic", status: :unprocessable_entity
-    elsif topic.voters.pluck(:name).include?(session[:cas_user])
-      render text: "You can't vote more than once to the same topic", status: :unprocessable_entity
+    current_user = session[:cas_user]
+    if topic.speakers.pluck(:name).include?(current_user)
+      render text: "Sorry, You Can't vote for your own topic", status: :unprocessable_entity
+    elsif topic.voters.pluck(:name).include?(current_user)
+      render text: "Sorry, You can't vote more than once to the same topic", status: :unprocessable_entity
     else
-      topic.voters << User.find_or_create_by(name: session[:cas_user])
+      topic.voters << User.find_or_create_by(name: current_user)
       render text: topic.voters.length, status: :ok
     end
   end
-  
+
+  def contribute_for
+    topic = Topic.find(params[:id])
+    current_user = session[:cas_user]
+    if topic.speakers.pluck(:name).include?(current_user)
+      render text: "You have already added yourself as a speaker", status: :unprocessable_entity
+    else
+      topic.speakers << User.find_or_create_by(name: current_user)
+      render text: current_user, status: :ok
+    end
+  end
+
 end

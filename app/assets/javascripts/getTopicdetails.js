@@ -13,6 +13,7 @@ var getTopicDetails = function () {
             complete: function () {
                 setTimeout(function () {
                     $("#vote").click(addVoteToTopic)
+                    $("#contribute").click(addContributorToTopic)
                 }, 500);
             }
         })
@@ -20,23 +21,48 @@ var getTopicDetails = function () {
 }
 
 var addVoteToTopic = function () {
-    $("#getTopicModal").remove();
     $.ajax({
         url: '/topics/vote_for/' + $("#topic_id").val(),
         type: 'GET',
         crossDomain: true,
         dataType: 'html',
         success: function (votes) {
+            hideAlerts();
             $(".alert-success").show();
+            $(".alert-success").text("You vote is successfully being registered")
             $("#no_of_votes").text(votes)
         },
         error: function(error) {
+            hideAlerts();
             $(".alert-danger").text(error.responseText)
             $(".alert-danger").show()
         }
     })
 }
 
+var addContributorToTopic = function() {
+    $.ajax({
+        url: '/topics/contribute_for/' + $("#topic_id").val(),
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'html',
+        success: function (contributor) {
+            hideAlerts();
+            $("#speakers_list").append("<span>," + contributor + "</span>")
+            $(".alert-success").text("You are being registered as a speaker of the topic")
+            $(".alert-success").show();
+        },
+        error: function(error) {
+            hideAlerts();
+            $(".alert-danger").text(error.responseText)
+            $(".alert-danger").show()
+        }
+    })
+}
+
+var hideAlerts = function() {
+    $(".alert").hide();
+}
 
 $(document).ready(getTopicDetails)
 $(document).on('page:load', getTopicDetails)
