@@ -10,6 +10,8 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    speakers_topic = SpeakersTopics.find_by(topic_id: @topic.id, has_registered: true)
+    @registered_by = User.where(id: speakers_topic.user_id).pluck(:name).first
     respond_to do |format|
       format.html { render partial: 'topic' }
     end
@@ -41,7 +43,7 @@ class TopicsController < ApplicationController
     topic = Topic.find(params[:id])
     current_user = session[:cas_user]
     if topic.speakers.pluck(:name).include?(current_user)
-      render text: "You have already added yourself as a speaker", status: :unprocessable_entity
+      render text: 'You have already added yourself as a speaker', status: :unprocessable_entity
     else
       topic.speakers << User.find_or_create_by(name: current_user)
       render text: current_user, status: :ok

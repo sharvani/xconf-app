@@ -48,7 +48,7 @@ var addContributorToTopic = function() {
         dataType: 'html',
         success: function (contributor) {
             hideAlerts();
-            $("#speakers_list").append("<span>," + contributor + "</span>")
+            $("#speakers_list").append("<span>" + contributor + "</span>")
             $(".alert-success").text("You are being registered as a speaker of the topic")
             $(".alert-success").show();
         },

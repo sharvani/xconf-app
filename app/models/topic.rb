@@ -6,7 +6,9 @@ class Topic < ActiveRecord::Base
 
   def save_with_speaker(current_user)
     save
-    speakers << User.find_or_create_by(name: current_user)
+    speaker = User.find_or_create_by(name: current_user)
+    speakers << speaker
+    SpeakersTopics.where(topic_id: self.id, user_id: speaker.id).update_all(has_registered:  true)
   end
 
 end
