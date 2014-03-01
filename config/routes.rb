@@ -10,7 +10,7 @@ XconfApp::Application.routes.draw do
   end
 
 
-  resources :speakers, :topics
+  resources :users, :topics
 
   root 'topics#index'
 

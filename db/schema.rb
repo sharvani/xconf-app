@@ -11,16 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228105945) do
-
-  create_table "speakers", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140301091024) do
 
   create_table "speakers_topics", id: false, force: true do |t|
-    t.integer  "speaker_id",     null: false
+    t.integer  "user_id",        null: false
     t.integer  "topic_id",       null: false
     t.integer  "speaker_id_id"
     t.integer  "topic_id_id"
@@ -35,6 +29,12 @@ ActiveRecord::Schema.define(version: 20140228105945) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "votes",       default: 0
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

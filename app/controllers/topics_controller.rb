@@ -26,9 +26,21 @@ class TopicsController < ApplicationController
 
   def vote_for
     topic = Topic.find(params[:id])
-    if topic.update_attribute(:votes,  topic.votes += 1)
-      render text: topic.votes
+    if topic.speakers.pluck(:name).include?(session[:cas_user])
+      render text: 'You Cant vote for your own topic', status: :unprocessable_entity
+    else
+      topic.update_attribute(:votes, topic.votes += 1)
+      render text: topic.votes, status: :ok
     end
+  end
+
+  private
+  def fetch_speakers_names(topic)
+    speakers = []
+    topic.speakers.each { |speaker|
+      speakers << speaker.name
+    }
+    speakers
   end
 
 end

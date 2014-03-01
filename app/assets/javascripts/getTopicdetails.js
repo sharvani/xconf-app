@@ -29,6 +29,10 @@ var addVoteToTopic = function () {
         success: function (votes) {
             $(".alert-success").show();
             $("#no_of_votes").text(votes)
+        },
+        error: function(error) {
+            $(".alert-danger").text(error.responseText)
+            $(".alert-danger").show()
         }
     })
 }
