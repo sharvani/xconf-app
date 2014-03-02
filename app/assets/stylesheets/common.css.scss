@@ -37,8 +37,8 @@ a {
   padding: 13px 0;
   box-shadow: 0 3px 10px $wrapper-shadow-color;
   margin-bottom: 20px;
-  #title {
-    text-align: right;
+  #app_title {
+    text-align: center;
   }
   h1 {
     margin: 0;
@@ -54,6 +54,17 @@ a {
   #logout {
     padding-left: 10px;
   }
+}
+
+.alert {
+  padding: 10px;
+}
+
+.alert-info {
+  background: $light-theme-color;
+  border: none;
+  color: white;
+  font-size: 17px;
 }
 
 .row {

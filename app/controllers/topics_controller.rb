@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(params[:topic].permit(:title, :description))
     if @topic.save_with_speaker session[:cas_user]
-      redirect_to topics_path
+      redirect_to topics_path, {notice: 'You have successfully registered the topic'}
     else
       render 'new'
     end

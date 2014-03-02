@@ -21,6 +21,8 @@ var getTopicDetails = function () {
 }
 
 var addVoteToTopic = function () {
+    hideAlerts();
+    $(".alert-info").show();
     $.ajax({
         url: '/topics/vote_for/' + $("#topic_id").val(),
         type: 'GET',
@@ -41,6 +43,8 @@ var addVoteToTopic = function () {
 }
 
 var addContributorToTopic = function() {
+    hideAlerts();
+    $(".alert-info").show();
     $.ajax({
         url: '/topics/contribute_for/' + $("#topic_id").val(),
         type: 'GET',
