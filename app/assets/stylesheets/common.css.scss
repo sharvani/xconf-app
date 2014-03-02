@@ -2,7 +2,7 @@
 
 body {
   background: $body-background-color;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   color: $body-text-color;
 }
 
@@ -18,6 +18,10 @@ a {
     color: $body-text-color;
     text-decoration: none;
   }
+}
+
+.row {
+  margin: 0;
 }
 
 .btn-primary {
@@ -67,6 +71,6 @@ a {
   font-size: 17px;
 }
 
-.row {
-  margin: 0;
+#footer {
+  text-align: center;
 }
