@@ -30,14 +30,14 @@ var addVoteToTopic = function () {
         dataType: 'html',
         success: function (votes) {
             hideAlerts();
-            $(".alert-success").show();
             $(".alert-success").text("Your vote is successfully being registered")
-            $("#no_of_votes").text(votes)
+            $(".alert-success").show().delay(2000).slideUp(600);
+            $("#no_of_votes").text(votes);
         },
         error: function(error) {
             hideAlerts();
             $(".alert-danger").text(error.responseText)
-            $(".alert-danger").show()
+            $(".alert-danger").show().delay(2000).slideUp(600);
         }
     })
 }
@@ -54,12 +54,12 @@ var addContributorToTopic = function() {
             hideAlerts();
             $("#speakers_list").append("<span>" + contributor + ",</span>")
             $(".alert-success").text("You are being registered as a speaker of the topic")
-            $(".alert-success").show();
+            $(".alert-success").show().delay(2000).slideUp(600);
         },
         error: function(error) {
             hideAlerts();
             $(".alert-danger").text(error.responseText)
-            $(".alert-danger").show()
+            $(".alert-danger").show().delay(2000).slideUp(600);
         }
     })
 }
