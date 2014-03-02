@@ -4,12 +4,15 @@
 
 <div class='topic-blocks clearfix'>
   <% @topics.each do |topic| %>
-      <div class='col-lg-2 col-md-3 col-sm-4 col-xs-6'>
+      <div class='col-lg-3 col-md-4 col-sm-6'>
         <div class='block'>
-          <div class="title-data">
-            <div id="title"><a href="" class="topic-title" data-id="<%= topic.id %>"><%= topic.title %></a></div>
-            <div id="author"><%= topic.description %></div>
+          <div id="title">
+            <h2>
+              <a class="topic-title" data-id="<%= topic.id %>"><%= topic.title %></a>
+              <span class="no-of-votes"><%= topic.voters.length %></span>
+            </h2>
           </div>
+          <div id="description"><%= topic.description %></div>
         </div>
       </div>
   <% end %>

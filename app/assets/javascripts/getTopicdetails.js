@@ -1,7 +1,7 @@
 var getTopicDetails = function () {
 
     $(".topic-title").on('click', function (e) {
-        $("#getTopicModal").remove();
+        $("#get_topic_details").remove();
         $.ajax({
             url: '/topics/' + $(e.target).attr("data-id"),
             type: 'GET',
@@ -29,7 +29,7 @@ var addVoteToTopic = function () {
         success: function (votes) {
             hideAlerts();
             $(".alert-success").show();
-            $(".alert-success").text("You vote is successfully being registered")
+            $(".alert-success").text("Your vote is successfully being registered")
             $("#no_of_votes").text(votes)
         },
         error: function(error) {
@@ -48,7 +48,7 @@ var addContributorToTopic = function() {
         dataType: 'html',
         success: function (contributor) {
             hideAlerts();
-            $("#speakers_list").append("<span>" + contributor + "</span>")
+            $("#speakers_list").append("<span>" + contributor + ",</span>")
             $(".alert-success").text("You are being registered as a speaker of the topic")
             $(".alert-success").show();
         },

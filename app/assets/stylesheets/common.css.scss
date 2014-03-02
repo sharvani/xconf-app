@@ -1,21 +1,58 @@
+@import "mixins/colors";
+
 body {
-  background: rgb(231, 238, 243);
-  margin: 20px 0;
+  background: $body-background-color;
+  padding: 20px;
+  color: $body-text-color;
 }
 
-#content {
-  margin: 20px;
+#wrapper {
+  background: $content-background-color;
+  padding: 20px;
+  box-shadow: 0 12px 30px $wrapper-shadow-color;
+}
+
+a {
+  color: white;
+  &:hover {
+    color: $body-text-color;
+    text-decoration: none;
+  }
+}
+
+.btn-primary {
+  color: $body-text-color;
+  background: $theme-color;
+  border: none;
+  padding: 7px 20px;
+  font-size: 16px;
+  &:hover {
+    background: $light-theme-color;
+    color: $body-text-color;
+  }
 }
 
 #header {
+  background: $theme-color;
+  padding: 13px 0;
+  box-shadow: 0 3px 10px $wrapper-shadow-color;
+  margin-bottom: 20px;
   #title {
     text-align: right;
   }
   h1 {
     margin: 0;
   }
-  #username {
-    padding-top: 15px;
+}
+
+#username {
+  padding-top: 15px;
+  font-size: 17px;
+  #name {
+    padding-right: 10px;
+  }
+  #logout {
+    padding-left: 10px;
   }
 }
 

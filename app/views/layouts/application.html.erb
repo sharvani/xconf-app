@@ -8,18 +8,22 @@
 </head>
 <body>
 
+<div id="wrapper">
+  <div id="header" class="row">
+    <h1 class="col-lg-8" id="title">XConf Gurgaon 2014</h1>
 
-<div id="header" class="row">
-  <h1 class="col-lg-8" id="title">XConf Gurgaon 2014</h1>
-  <div class="col-lg-4">
+    <div class="col-lg-4">
     <span class="pull-right" id="username">
-        Welcome, <%= session[:cas_user] %> | <a href="/login/logout">Logout</a>
+        <span id="name">Welcome, <%= session[:cas_user] %></span> |
+        <a id="logout" href="/login/logout">Logout</a>
     </span>
+    </div>
+  </div>
+
+  <div id="content">
+    <%= yield %>
   </div>
 </div>
 
-<div id="content">
-  <%= yield %>
-</div>
 </body>
 </html>

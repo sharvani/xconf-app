@@ -1,0 +1,41 @@
+@import "mixins/colors";
+
+.block {
+  margin-bottom: 30px;
+  background: $light-theme-color;
+  border-radius: 4px;
+  height: 270px;
+  overflow: hidden;
+
+  h2 {
+    border-bottom: 1px solid $theme-color;
+    box-shadow: 1px 0px 0px $wrapper-shadow-color;
+    padding: 12px;
+    margin: 0;
+  }
+
+  #description {
+    padding: 12px;
+    font-size: 20px;
+  }
+
+}
+
+#register_new_topic {
+  margin-bottom: 20px;
+}
+
+.topic-title {
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.no-of-votes {
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 18px;
+  color: white;
+  background: $theme-color;
+  position: relative;
+  top: -3px;
+}

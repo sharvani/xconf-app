@@ -1,9 +1,11 @@
-<div class='modal fade' id='get_topic_details' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+<div class='modal fade form-modal' id='get_topic_details' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Topic Details</h4>
+        <h2 class="modal-title"><%= @topic.title %>
+          <span class="no-of-votes" id="no_of_votes"><%= @topic.voters.length %></span>
+        </h2>
       </div>
       <div class="modal-body">
 
@@ -13,49 +15,35 @@
         <div class="alert alert-danger"></div>
 
         <div class="row">
-          <div class="pull-right">
-            <span id="no_of_votes"><%= @topic.voters.length %></span>
-          </div>
-        </div>
+          <label class="col-lg-3 col-md-3 col-sm-3">Registered By:</label>
 
-        <div class="row">
-          <label class="col-lg-3">Title:</label>
-
-          <div class="col-lg-9">
-            <%= @topic.title %>
-          </div>
-        </div>
-
-        <div class="row">
-          <label class="col-lg-3">Registered By:</label>
-
-          <div class="col-lg-9">
+          <div class="col-lg-9 col-md-9 col-sm-9">
             <%= @registered_by %>
           </div>
         </div>
 
         <div class="row">
-          <label class="col-lg-3">Speakers:</label>
+          <label class="col-lg-3 col-md-3 col-sm-3">Speakers:</label>
 
-          <div class="col-lg-9" id="speakers_list">
+          <div class="col-lg-9 col-md-9 col-sm-9" id="speakers_list">
             <% @topic.speakers.each do |speaker| %>
-                <span><%= speaker.name %></span>,
+                <span><%= speaker.name %>,</span>
             <% end %>
           </div>
         </div>
 
         <div class="row">
-          <label class="col-lg-3">Description:</label>
+          <label class="col-lg-3 col-md-3 col-sm-3">Description:</label>
 
-          <div class="col-lg-9">
+          <div class="col-lg-9 col-md-9 col-sm-9">
             <%= @topic.description %>
           </div>
         </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="vote">Vote</button>
         <button type="button" class="btn btn-primary" id="contribute">Contribute as a Speaker</button>
+        <button type="button" class="btn btn-primary" id="vote">Vote</button>
       </div>
     </div>
   </div>
