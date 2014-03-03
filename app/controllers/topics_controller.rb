@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.all.order('id desc')
+    @topics = Topic.all
     @current_user = session[:cas_user]
   end
 
@@ -36,6 +36,20 @@ class TopicsController < ApplicationController
       topic.voters << User.find_or_create_by(name: current_user)
       render text: topic.voters.length, status: :ok
     end
+  end
+
+  def get_speakers
+    @topic_id = params[:id]
+    @speakers = Topic.find(@topic_id).speakers
+    respond_to do |format|
+      format.html { render partial: 'speakers_list' }
+    end
+  end
+
+  def add_speakers
+    topic = Topic.find(params[:id])
+    topic.add_speakers_to_topic params[:speakers]
+    render :nothing => true
   end
 
   def destroy

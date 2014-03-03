@@ -7,6 +7,7 @@
 <div class="row">
   <a href="/topics/new" class="btn btn-primary pull-right" id="register_new_topic">Register New Topic</a>
 </div>
+
 <% if @topics.blank? %>
     <div class="alert alert-info">
       Be the first one to register for XConf 2014
@@ -17,7 +18,7 @@
           <div class='col-lg-3 col-md-4 col-sm-6'>
             <div class='block'>
               <div class="title row">
-                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
                   <h2>
                     <a class="topic-title" data-id="<%= topic.id %>"><%= topic.title %></a>
                     <span class="no-of-votes"><%= topic.voters.length %></span>
@@ -28,15 +29,15 @@
                       <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                         <span class="caret"></span>
                       </div>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation">
-                          <a role="menuitem" tabindex="-1" href="/topics/<%= topic.id %>" data-method="delete">
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a href="/topics/<%= topic.id %>" data-method="delete" data-confirm="Are You Sure">
                             <span class="glyphicon glyphicon-trash"></span>
                             <span class="edit-text">Delete</span>
                           </a>
                         </li>
-                        <li role="presentation">
-                          <a role="menuitem" tabindex="-1" href="#">
+                        <li>
+                          <a class="edit-speakers" data-id="<%= topic.id %>">
                             <span class="glyphicon glyphicon-pencil"></span>
                             <span class="edit-text">Edit Speakers</span>
                           </a>

@@ -8,6 +8,8 @@ XconfApp::Application.routes.draw do
   resources :topics do
     get 'vote_for/:id', to: 'topics#vote_for', :on => :collection
     get 'contribute_for/:id', to: 'topics#contribute_for', :on => :collection
+    get 'get_speakers/:id', to: 'topics#get_speakers', :on => :collection
+    get 'add_speakers/:id', to: 'topics#add_speakers', :on => :collection
   end
 
 

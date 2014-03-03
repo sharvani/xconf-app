@@ -13,7 +13,6 @@ var getTopicDetails = function () {
             complete: function () {
                 setTimeout(function () {
                     $("#vote").click(addVoteToTopic)
-                    $("#contribute").click(addContributorToTopic)
                 }, 500);
             }
         })
