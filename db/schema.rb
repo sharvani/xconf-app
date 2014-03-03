@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301114712) do
+ActiveRecord::Schema.define(version: 20140303071441) do
 
   create_table "speakers_topics", id: false, force: true do |t|
-    t.integer  "user_id",                        null: false
-    t.integer  "topic_id",                       null: false
-    t.boolean  "has_registered", default: false
+    t.integer  "user_id",    null: false
+    t.integer  "topic_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

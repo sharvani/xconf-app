@@ -6,19 +6,51 @@
   border-radius: 4px;
   height: 270px;
   overflow: hidden;
+  word-wrap: break-word;
 
   h2 {
-    border-bottom: 1px solid $theme-color;
-    box-shadow: 1px 0px 0px $wrapper-shadow-color;
-    padding: 12px;
     margin: 0;
   }
 
-  #description {
+  .title {
+    border-bottom: 1px solid $theme-color;
+    padding: 12px;
+  }
+
+  .description {
     padding: 12px;
     font-size: 20px;
   }
 
+  .edit-topic {
+    float: right;
+    padding-top: 5px;
+  }
+
+  .edit-text {
+    padding-left: 8px;
+  }
+
+  .caret {
+    border-top: 8px solid;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+  }
+}
+
+.dropdown-menu {
+  top: 43px;
+  left: -135px;
+  background: $light-theme-color;
+  border-color: $theme-color;
+  > li > a {
+    color: $body-text-color;
+    padding: 3px 12px;
+    &:hover {
+      background: $theme-color;
+      color:  $body-text-color;
+    }
+  }
 }
 
 #register_new_topic {

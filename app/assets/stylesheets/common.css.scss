@@ -2,7 +2,7 @@
 
 body {
   background: $body-background-color;
-  padding: 20px 20px 0 20px;
+  padding: 20px;
   color: $body-text-color;
 }
 
@@ -69,8 +69,4 @@ a {
   border: none;
   color: white;
   font-size: 17px;
-}
-
-#footer {
-  text-align: center;
 }

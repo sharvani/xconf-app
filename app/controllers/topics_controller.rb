@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all.order('id desc')
+    @current_user = session[:cas_user]
   end
 
   def new
@@ -10,8 +11,6 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    speakers_topic = SpeakersTopics.find_by(topic_id: @topic.id, has_registered: true)
-    @registered_by = User.where(id: speakers_topic.user_id).pluck(:name).first
     respond_to do |format|
       format.html { render partial: 'topic' }
     end
@@ -19,7 +18,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(params[:topic].permit(:title, :description))
-    if @topic.save_with_speaker session[:cas_user]
+    if @topic.save_with_registerer session[:cas_user]
       redirect_to topics_path, {notice: 'You have successfully registered the topic'}
     else
       render 'new'
@@ -36,6 +35,13 @@ class TopicsController < ApplicationController
     else
       topic.voters << User.find_or_create_by(name: current_user)
       render text: topic.voters.length, status: :ok
+    end
+  end
+
+  def destroy
+    topic = Topic.find(params[:id])
+    if topic.delete
+      redirect_to topics_path
     end
   end
 

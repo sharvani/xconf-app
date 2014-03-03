@@ -31,6 +31,8 @@ gem "bootstrap-sass", "~> 3.0.3.0"
 
 gem "rubycas-client"
 
+gem 'rails_12factor', group: :production
+
 gem 'pry'
 
 group :doc do
