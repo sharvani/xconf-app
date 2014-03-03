@@ -9,7 +9,6 @@ class Topic < ActiveRecord::Base
   def save_with_registerer(current_user)
     if save
       self.registerer = User.find_or_create_by(name: current_user)
-      binding.pry
       speakers << User.find_by(name: current_user)
     end
   end
