@@ -42,27 +42,6 @@ var addVoteToTopic = function () {
     })
 }
 
-var addContributorToTopic = function() {
-    hideAlerts();
-    $(".alert-info").show();
-    $.ajax({
-        url: '/topics/contribute_for/' + $("#topic_id").val(),
-        type: 'GET',
-        crossDomain: true,
-        dataType: 'html',
-        success: function (contributor) {
-            hideAlerts();
-            $("#speakers_list").append("<span>" + contributor + ",</span>")
-            $(".alert-success").text("You are being registered as a speaker of the topic")
-            $(".alert-success").show().delay(2000).slideUp(600);
-        },
-        error: function(error) {
-            hideAlerts();
-            $(".alert-danger").text(error.responseText)
-            $(".alert-danger").show().delay(2000).slideUp(600);
-        }
-    })
-}
 
 var hideAlerts = function() {
     $(".alert").hide();

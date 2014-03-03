@@ -45,15 +45,4 @@ class TopicsController < ApplicationController
     end
   end
 
-  def contribute_for
-    topic = Topic.find(params[:id])
-    current_user = session[:cas_user]
-    if topic.speakers.pluck(:name).include?(current_user)
-      render text: 'You have already added yourself as a speaker', status: :unprocessable_entity
-    else
-      topic.speakers << User.find_or_create_by(name: current_user)
-      render text: current_user, status: :ok
-    end
-  end
-
 end
