@@ -22,7 +22,7 @@
               <span class="required">*</span>
             </div>
             <div class='col-lg-9 col-md-9 col-sm-8'>
-              <%= f.text_field :title, class: 'form-control', autofocus: true %>
+              <%= f.text_field :title, class: 'form-control', autofocus: true, maxlength: 250 %>
             </div>
           </div>
 
@@ -32,7 +32,7 @@
               <span class="required">*</span>
             </div>
             <div class='col-lg-9 col-md-9 col-sm-8'>
-              <%= f.text_area :description, class: 'form-control' %>
+              <%= f.text_area :description, class: 'form-control', maxlength: 2000 %>
             </div>
           </div>
 

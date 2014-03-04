@@ -29,9 +29,7 @@
           <label class="col-lg-3 col-md-3 col-sm-3">Speakers:</label>
 
           <div class="col-lg-9 col-md-9 col-sm-9" id="speakers_list">
-            <% @topic.speakers.each do |speaker| %>
-                <span><%= speaker.name %>,</span>
-            <% end %>
+            <span><%= convert_array_to_string(@topic.speakers) %></span>
           </div>
         </div>
 

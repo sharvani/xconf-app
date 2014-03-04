@@ -13,9 +13,7 @@
           <label class="col-lg-4 col-md-4 col-sm-4">Current Speakers:</label>
 
           <div class="col-lg-8 col-md-8 col-sm-8">
-            <% @speakers.each do |speaker| %>
-                <%= speaker.name %>,
-            <% end %>
+               <span><%= convert_array_to_string(@speakers) %></span>
           </div>
         </div>
 

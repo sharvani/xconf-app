@@ -4,3 +4,4 @@ var fadeOutNoticeAlert = function() {
 
 
 $(document).ready(fadeOutNoticeAlert)
+$(document).on('page:load', fadeOutNoticeAlert)

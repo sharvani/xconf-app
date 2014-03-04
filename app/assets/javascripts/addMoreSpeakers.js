@@ -1,6 +1,6 @@
 var getSpeakers = function () {
-    $(".add_more_speakers").on('click', function (e) {
-        $("#get_topic_details").remove();
+    $("#add_more_speakers").remove();
+    $(".edit-speakers").on('click', function (e) {
         $.ajax({
             url: '/topics/get_speakers/' + $($(e.target).parent()).attr("data-id"),
             type: 'GET',
