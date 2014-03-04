@@ -52,12 +52,23 @@ a {
 #username {
   padding-top: 15px;
   font-size: 17px;
+  padding-right: 0px;
+  cursor: pointer;
   #name {
     padding-right: 10px;
   }
-  #logout {
-    padding-left: 10px;
+  .dropdown-toggle {
+    padding-right: 15px;
   }
+  .dropdown-menu {
+    top: 35px;
+  }
+}
+
+.caret {
+  border-top: 8px solid;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
 }
 
 .alert {
@@ -67,6 +78,6 @@ a {
 .alert-info {
   background: $light-theme-color;
   border: none;
-  color: white;
+  color: $body-text-color;
   font-size: 17px;
 }

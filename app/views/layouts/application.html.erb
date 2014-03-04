@@ -13,11 +13,23 @@
     <div class="col-lg-offset-4 col-lg-4 col-md-offset-2 col-md-6 col-sm-7">
       <h1 id="app_title">XConf Gurgaon 2014</h1>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-5">
-    <span class="pull-right" id="username">
-        <span id="name">Welcome, <%= session[:cas_user] %></span> |
-        <a id="logout" href="/login/logout">Logout</a>
-    </span>
+    <div class="col-lg-4 col-md-4 col-sm-5" id="username">
+
+      <div class="dropdown pull-right">
+        <div class="dropdown-toggle"  data-toggle="dropdown">
+          <span id="name">Welcome, <%= session[:cas_user] %></span>
+          <span class="caret"></span>
+        </div>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="/users/own_topics">Own Topics</a>
+          </li>
+          <li>
+            <a href="/login/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
 

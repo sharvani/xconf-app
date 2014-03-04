@@ -12,6 +12,9 @@ XconfApp::Application.routes.draw do
     get 'add_speakers/:id', to: 'topics#add_speakers', :on => :collection
   end
 
+  resources :users do
+    get 'own_topics', to: 'users#own_topics', :on => :collection
+  end
 
   resources :users, :topics
 

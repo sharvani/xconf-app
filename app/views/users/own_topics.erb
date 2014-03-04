@@ -1,19 +1,12 @@
-<% if notice %>
-    <div class="alert alert-success" id="notice">
-      <%= notice %>
-    </div>
-<% end %>
-
 <div class="row">
   <a href="/topics/new" class="btn btn-primary pull-right" id="register_new_topic">Register New Topic</a>
+  <a href="/topics" class="btn btn-primary pull-right">Back To List</a>
 </div>
 
 <% if @topics.blank? %>
     <div class="alert alert-info">
-      Be the first one to register for XConf 2014
+      You are not contributing to any topic.
     </div>
 <% else %>
-    <%= render 'topic_list' %>
+    <%= render 'topics/topic_list' %>
 <% end %>
-
-
