@@ -47,7 +47,8 @@
                 <% end %>
 
               </div>
-              <div class="description"><%= topic.description %></div>
+              <div class="description"><%= truncate(topic.description, :length => 245) %></div>
+
             </div>
           </div>
       <% end %>
