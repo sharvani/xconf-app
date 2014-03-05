@@ -5,7 +5,7 @@
           <div class="title row">
             <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
               <h2>
-                <a class="topic-title" data-id="<%= topic.id %>"><%= topic.title %></a>
+                <a class="topic-title" data-id="<%= topic.id %>"><%= truncate(topic.title, length: 18) %></a>
                 <span class="no-of-votes"><%= topic.voters.length %></span>
               </h2>
             </div>
@@ -32,7 +32,7 @@
             <% end %>
 
           </div>
-          <div class="description"><%= truncate(topic.description, :length => 220) %></div>
+          <div class="description"><%= truncate(topic.description, length: 220) %></div>
 
         </div>
       </div>
