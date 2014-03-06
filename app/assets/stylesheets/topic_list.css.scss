@@ -4,7 +4,7 @@
   margin-bottom: 30px;
   background: $light-theme-color;
   border-radius: 4px;
-  height: 270px;
+  height: 320px;
   word-wrap: break-word;
   overflow: hidden;
 
@@ -14,11 +14,11 @@
 
   .title {
     border-bottom: 1px solid $theme-color;
-    padding: 12px;
+    padding: 10px 12px 6px 0px;
   }
 
   .description {
-    padding: 12px;
+    padding: 6px 12px 12px 12px;
     font-size: 20px;
   }
 
@@ -26,7 +26,8 @@
     float: right;
     padding-top: 5px;
     position: relative;
-    top: 31px;
+    top: -32px;
+    left: -10px;
   }
 
   .edit-text {
@@ -40,9 +41,20 @@ h3 {
   padding-top: 5px;
 }
 
+.speaker-list {
+  padding-top: 14px;
+  font-size: 15px;
+  label {
+    background: $theme-color;
+    padding: 4px;
+    margin-right: 5px;
+    border-radius: 2px;
+  }
+}
+
 .dropdown-menu {
-  top: 43px;
-  left: -135px;
+  top: 28px;
+  left: -137px;
   background: $light-theme-color;
   border-color: $theme-color;
   font-size: 15px;

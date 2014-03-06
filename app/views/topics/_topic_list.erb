@@ -12,7 +12,14 @@
                 <span>(<%= topic.duration %> min)</span>
                 <span class="no-of-votes"><%= topic.voters.length %></span>
               </h3>
+
+              <div class="speaker-list">
+                <label>Speakers</label>
+                <span><%= convert_array_to_string(topic.speakers) %></span>
+              </div>
             </div>
+          </div>
+          <div>
             <% if topic.registerer.name == @current_user %>
                 <div class="dropdown edit-topic">
                   <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
@@ -35,9 +42,8 @@
                 </div>
             <% end %>
 
+            <div class="description"><%= truncate(topic.description, length: 190) %></div>
           </div>
-          <div class="description"><%= truncate(topic.description, length: 230) %></div>
-
         </div>
       </div>
   <% end %>
