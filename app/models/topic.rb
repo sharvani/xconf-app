@@ -1,6 +1,7 @@
 class Topic < ActiveRecord::Base
 
-  validates :title, :description, presence: true
+  validates_presence_of :title, :duration, :description
+  validates_numericality_of :duration, only_integer: true
 
   has_and_belongs_to_many :speakers, class_name: User, join_table: :speakers_topics
   has_many :voters, class_name: User
