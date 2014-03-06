@@ -19,6 +19,7 @@ var getSpeakers = function () {
 }
 
 var addMoreSpeakers = function () {
+    hideAlerts();
     $.ajax({
         url: '/topics/add_speakers/' + $("#topic_id").val(),
         type: 'GET',
@@ -27,6 +28,10 @@ var addMoreSpeakers = function () {
         dataType: 'html',
         success: function() {
             window.location.replace("/topics");
+        },
+        error: function(error) {
+            $(".alert-danger").text(error.responseText)
+            $(".alert-danger").show().delay(2000).slideUp(600);
         }
     })
 }
