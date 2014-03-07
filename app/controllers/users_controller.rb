@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if user.nil?
       []
     else
-      @topics = user.topics
+      @topics = user.get_registered_topics(@current_user)
     end
   end
 
