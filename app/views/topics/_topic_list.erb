@@ -8,10 +8,10 @@
                 <a class="topic-title" data-id="<%= topic.id %>"><%= truncate(topic.title, length: 18) %></a>
               </h2>
 
-              <h3>
-                <span>(<%= topic.duration %> min)</span>
+              <h4>
+                <span><%= topic.category %></span>
                 <span class="no-of-votes"><%= topic.voters.length %></span>
-              </h3>
+              </h4>
 
               <div class="speaker-list">
                 <label>Speakers</label>

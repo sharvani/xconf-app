@@ -28,11 +28,11 @@
 
           <div class="form-group">
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-              <%= f.label :duration, class: 'col-lg-11 col-md-11 col-sm-11 control-label' %>
+              <label class='col-lg-11 col-md-11 col-sm-11 control-label'>Type</label>
               <span class="required">*</span>
             </div>
             <div class='col-lg-9 col-md-9 col-sm-8'>
-              <%= f.text_field :duration, class: 'form-control', maxlength: 3, placeholder: 'Minutes' %>
+              <%= f.select(:category, ['Crisp Talk (6min)', 'Lightening Talk (20min)', 'Presentation (40min)','Workshop (60min)'], {}, {:class => 'form-control'} ) %>
             </div>
           </div>
 
