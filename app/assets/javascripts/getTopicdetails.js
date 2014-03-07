@@ -29,9 +29,7 @@ var addVoteToTopic = function () {
         dataType: 'html',
         success: function (votes) {
             hideAlerts();
-            $(".alert-success").text("Your vote is successfully being registered")
-            $(".alert-success").show().delay(2000).slideUp(600);
-            $("#no_of_votes").text(votes);
+            window.location.replace("/topics");
         },
         error: function(error) {
             hideAlerts();
