@@ -16,6 +16,13 @@ class TopicsController < ApplicationController
     end
   end
 
+  def topics_list
+    @topics = Topic.all
+    respond_to do |format|
+      format.xls
+    end
+  end
+
   def create
     @topic = Topic.new(params[:topic].permit(:title, :category, :description))
     if @topic.save_with_registerer session[:cas_user]

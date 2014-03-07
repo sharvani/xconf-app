@@ -10,6 +10,7 @@ XconfApp::Application.routes.draw do
     get 'contribute_for/:id', to: 'topics#contribute_for', :on => :collection
     get 'get_speakers/:id', to: 'topics#get_speakers', :on => :collection
     get 'add_speakers/:id', to: 'topics#add_speakers', :on => :collection
+    get 'topics_list', to: 'topics#topics_list', :on => :collection
   end
 
   resources :users do

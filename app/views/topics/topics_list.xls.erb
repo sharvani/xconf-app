@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Registerer</th>
+    <th>Speakers</th>
+  </tr>
+  <% @topics.each do |topic| %>
+      <tr>
+        <td><%= topic.title %></td>
+        <td><%= topic.category %></td>
+        <td><%= topic.description %></td>
+        <td><%= topic.registerer.name %></td>
+        <td><%= convert_array_to_string(topic.speakers) %></td>
+      </tr>
+  <% end %>
+</table>
