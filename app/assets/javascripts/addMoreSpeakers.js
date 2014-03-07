@@ -11,7 +11,8 @@ var getSpeakers = function () {
             },
             complete: function () {
                 setTimeout(function () {
-                    $("#add_speakers").click(addMoreSpeakers)
+                    $("#add_speakers").click(addMoreSpeakers);
+                    $("#new_speakers").focus();
                 }, 500);
             }
         })
@@ -30,7 +31,7 @@ var addMoreSpeakers = function () {
             window.location.replace("/topics");
         },
         error: function(error) {
-            $(".alert-danger").text(error.responseText.replace('[','').replace(']','') + ' has already been added as a speaker')
+            $(".alert-danger").text(error.responseText)
             $(".alert-danger").show().delay(2000).slideUp(600);
         }
     })

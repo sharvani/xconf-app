@@ -42,18 +42,23 @@ class TopicsController < ApplicationController
   def get_speakers
     @topic_id = params[:id]
     @speakers = Topic.find(@topic_id).speakers
+    if @speakers.length == 5
+      rendering_partial = 'limit_reached'
+    else
+      rendering_partial = 'speakers_list'
+    end
     respond_to do |format|
-      format.html { render partial: 'speakers_list' }
+      format.html { render partial: '/topics/partials/' + rendering_partial }
     end
   end
 
   def add_speakers
     topic = Topic.find(params[:id])
-    has_added, already_added_speakers = topic.add_speakers_to_topic params[:speakers]
+    has_added, rendering_text = topic.add_speakers_to_topic params[:speakers]
     if has_added
       render nothing: true, status: :ok
     else
-      render text: already_added_speakers , status: :unprocessable_entity
+      render text: rendering_text, status: :unprocessable_entity
     end
   end
 
