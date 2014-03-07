@@ -20,6 +20,7 @@ class Topic < ActiveRecord::Base
     already_added_speakers = has_already_added(current_speakers_names, new_speakers_names)
     if already_added_speakers.blank?
       new_speakers_names.each{ | speaker |
+        speaker = speaker.strip! || speaker
         self.speakers << User.find_or_create_by(name: speaker)
       }
       return true, nil
@@ -32,6 +33,7 @@ class Topic < ActiveRecord::Base
   def has_already_added(current_speakers, new_speakers)
     already_added_speakers = []
     new_speakers.each { |speaker|
+      speaker = speaker.strip! || speaker
       if current_speakers.include? speaker
         already_added_speakers << speaker
       end
