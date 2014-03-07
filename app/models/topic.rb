@@ -15,25 +15,28 @@ class Topic < ActiveRecord::Base
   end
 
   def add_speakers_to_topic(speakers)
-    speakers_array = speakers.split(',')
-    current_speakers_names = self.get_speakers_names
-    speakers_array.each { |speaker|
-    speaker = speaker.strip! || speaker
-    if current_speakers_names.include? speaker
-        return false, speaker
-      else
+    new_speakers_names = speakers.split(',')
+    current_speakers_names = self.speakers.pluck(:name)
+    already_added_speakers = has_already_added(current_speakers_names, new_speakers_names)
+    if already_added_speakers.blank?
+      new_speakers_names.each{ | speaker |
         self.speakers << User.find_or_create_by(name: speaker)
-      end
-    }
-    return true, nil
+      }
+      return true, nil
+    else
+      return false, already_added_speakers
+    end
+
   end
 
-  def get_speakers_names
-    speakers_names = []
-    self.speakers.each { |speaker|
-      speakers_names << speaker.name
+  def has_already_added(current_speakers, new_speakers)
+    already_added_speakers = []
+    new_speakers.each { |speaker|
+      if current_speakers.include? speaker
+        already_added_speakers << speaker
+      end
     }
-    speakers_names
+    already_added_speakers
   end
 
 end

@@ -30,7 +30,7 @@ var addMoreSpeakers = function () {
             window.location.replace("/topics");
         },
         error: function(error) {
-            $(".alert-danger").text(error.responseText)
+            $(".alert-danger").text(error.responseText.replace('[','').replace(']','') + ' has already been added as a speaker')
             $(".alert-danger").show().delay(2000).slideUp(600);
         }
     })

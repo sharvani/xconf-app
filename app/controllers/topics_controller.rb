@@ -49,11 +49,11 @@ class TopicsController < ApplicationController
 
   def add_speakers
     topic = Topic.find(params[:id])
-    has_added, speaker = topic.add_speakers_to_topic params[:speakers]
+    has_added, already_added_speakers = topic.add_speakers_to_topic params[:speakers]
     if has_added
       render nothing: true, status: :ok
     else
-      render text: speaker + ' has already been added as a speaker', status: :unprocessable_entity
+      render text: already_added_speakers , status: :unprocessable_entity
     end
   end
 
