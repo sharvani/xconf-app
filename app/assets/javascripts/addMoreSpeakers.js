@@ -21,6 +21,7 @@ var getSpeakers = function () {
 
 var addMoreSpeakers = function () {
     hideAlerts();
+    $(".alert-info").show();
     $.ajax({
         url: '/topics/add_speakers/' + $("#topic_id").val(),
         type: 'GET',

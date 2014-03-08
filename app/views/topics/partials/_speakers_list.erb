@@ -7,6 +7,9 @@
       <div class="modal-body">
 
         <div class="alert alert-danger"></div>
+        <div class="alert alert-info">
+          <div class="loader">Please Wait</div>
+        </div>
 
         <input type="hidden" value="<%= @topic_id %>" id="topic_id"/>
 
@@ -14,7 +17,7 @@
           <label class="col-lg-4 col-md-4 col-sm-4">Current Speakers:</label>
 
           <div class="col-lg-8 col-md-8 col-sm-8">
-               <span><%= convert_array_to_string(@speakers) %></span>
+            <span><%= convert_array_to_string(@speakers) %></span>
           </div>
         </div>
 
