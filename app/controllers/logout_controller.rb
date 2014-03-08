@@ -1,6 +1,6 @@
-class LoginController < ApplicationController
+class LogoutController < ApplicationController
 
-  def logout
+  def index
     CASClient::Frameworks::Rails::Filter.logout(self)
   end
 

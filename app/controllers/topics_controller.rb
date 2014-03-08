@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     respond_to do |format|
-      format.html { render partial: 'topic' }
+      format.html { render partial: '/topics/partials/topic' }
     end
   end
 

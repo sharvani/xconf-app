@@ -2,9 +2,6 @@ XconfApp::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-
-  match '/login/logout' , controller: 'login#logout', via: [:get, :post]
-
   resources :topics do
     get 'vote_for/:id', to: 'topics#vote_for', :on => :collection
     get 'contribute_for/:id', to: 'topics#contribute_for', :on => :collection
@@ -17,7 +14,7 @@ XconfApp::Application.routes.draw do
     get 'own_topics', to: 'users#own_topics', :on => :collection
   end
 
-  resources :users, :topics
+  resources :users, :topics, :logout
 
   root 'topics#index'
 
