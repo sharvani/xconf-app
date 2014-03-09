@@ -32,6 +32,7 @@ var addMoreSpeakers = function () {
             window.location.replace("/topics");
         },
         error: function(error) {
+            hideAlerts();
             $(".alert-danger").text(error.responseText)
             $(".alert-danger").show().delay(2000).slideUp(600);
         }

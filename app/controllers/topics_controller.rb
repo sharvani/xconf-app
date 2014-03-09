@@ -16,19 +16,39 @@ class TopicsController < ApplicationController
     end
   end
 
-  def topics_list
-    @topics = Topic.all
-    respond_to do |format|
-      format.xls
-    end
-  end
-
   def create
     @topic = Topic.new(params[:topic].permit(:title, :category, :description))
     if @topic.save_with_registerer session[:cas_user]
       redirect_to topics_path, {notice: 'You have successfully registered the topic'}
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @topic = Topic.find(params[:id])
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    if @topic.update(params[:topic].permit(:title, :category, :description))
+      redirect_to topics_path, {notice: 'You have successfully updated the topic'}
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    topic = Topic.find(params[:id])
+    if topic.delete
+      redirect_to topics_path
+    end
+  end
+
+  def topics_list
+    @topics = Topic.all
+    respond_to do |format|
+      format.xls
     end
   end
 
@@ -66,13 +86,6 @@ class TopicsController < ApplicationController
       render nothing: true, status: :ok
     else
       render text: rendering_text, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    topic = Topic.find(params[:id])
-    if topic.delete
-      redirect_to topics_path
     end
   end
 

@@ -3,14 +3,14 @@
       <div class='col-lg-3 col-md-4 col-sm-6'>
         <div class='block'>
           <div class="title row">
-            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 topic-header">
               <h2>
-                <a class="topic-title" data-id="<%= topic.id %>"><%= truncate(topic.title, length: 18) %></a>
+                <a class="topic-title" data-id="<%= topic.id %>"><%= truncate(topic.title, length: 35) %></a>
+                <span class="no-of-votes"><%= topic.voters.length %></span>
               </h2>
 
               <h4>
                 <span><%= topic.category %></span>
-                <span class="no-of-votes"><%= topic.voters.length %></span>
               </h4>
 
               <div class="speaker-list">
@@ -27,22 +27,28 @@
                   </div>
                   <ul class="dropdown-menu">
                     <li>
-                      <a href="/topics/<%= topic.id %>" data-method="delete" data-confirm="Are You Sure">
-                        <span class="glyphicon glyphicon-trash"></span>
-                        <span class="edit-text">Delete</span>
+                      <a class="edit-speakers" data-id="<%= topic.id %>">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span class="edit-text">Add Speakers</span>
                       </a>
                     </li>
                     <li>
-                      <a class="edit-speakers" data-id="<%= topic.id %>">
+                      <a href="/topics/<%= topic.id %>/edit">
                         <span class="glyphicon glyphicon-pencil"></span>
-                        <span class="edit-text">Edit Speakers</span>
+                        <span class="edit-text">Edit</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/topics/<%= topic.id %>" data-method="delete" data-confirm="Are You Sure">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        <span class="edit-text">Delete</span>
                       </a>
                     </li>
                   </ul>
                 </div>
             <% end %>
 
-            <div class="description"><%= truncate(topic.description, length: 190) %></div>
+            <div class="description"><%= truncate(topic.description, length: 212) %></div>
           </div>
         </div>
       </div>
