@@ -76,6 +76,10 @@ h4 {
 .topic-title {
   cursor: pointer;
   word-wrap: break-word;
+  &:hover {
+    color: $theme-color;
+    text-decoration: underline;
+  }
 }
 
 .no-of-votes {
