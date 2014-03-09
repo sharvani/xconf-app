@@ -1,6 +1,6 @@
 @import "mixins/colors";
 
-#new_topic {
+.new_topic, .edit_topic {
   margin-top: 20px;
   background: $light-theme-color;
   padding: 20px 20px 5px 20px;

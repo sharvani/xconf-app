@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if user.nil?
       []
     else
-      @topics = user.voted_topics
+      @topics = user.voted_topics.order('id desc')
     end
 
   end

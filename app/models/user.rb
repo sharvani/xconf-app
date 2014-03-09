@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   def get_registered_topics(current_user)
     registered_topics = []
 
-    self.topics.each { |topic|
+    self.topics.order('id desc').each { |topic|
       if topic.registerer.name == current_user
         registered_topics << topic
       end
