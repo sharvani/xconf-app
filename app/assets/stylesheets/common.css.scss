@@ -38,19 +38,37 @@ a {
 
 #header {
   background: $theme-color;
-  padding: 13px 0;
+  padding: 5px 0;
   box-shadow: 0 3px 10px $wrapper-shadow-color;
   margin-bottom: 20px;
-  #app_title {
-    text-align: center;
+
+  #logo {
+    height: 70px;
+    vertical-align: top;
   }
-  h1 {
+
+  #app_title {
+    display: inline-block;
+    padding-top: 10px;
+    padding-left: 5px;
+    span {
+      font-size: 11px;
+    }
+  }
+
+  #location {
+    display: inline-block;
+    letter-spacing: 5px;
+  }
+
+  h2 {
     margin: 0;
+    letter-spacing: 13px;
   }
 }
 
 #username {
-  padding-top: 15px;
+  padding-top: 42px;
   font-size: 17px;
   padding-right: 0px;
   cursor: pointer;
@@ -61,7 +79,7 @@ a {
     padding-right: 15px;
   }
   .dropdown-menu {
-    top: 35px;
+    top: 30px;
   }
 }
 
@@ -80,4 +98,11 @@ a {
   border: none;
   color: $body-text-color;
   font-size: 17px;
+}
+
+#footer {
+  text-align: center;
+  a:hover {
+    color: $light-theme-color
+  }
 }
