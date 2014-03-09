@@ -29,7 +29,7 @@ var addMoreSpeakers = function () {
         crossDomain: true,
         dataType: 'html',
         success: function() {
-            window.location.replace("/topics");
+            window.location.replace("/users/own_topics");
         },
         error: function(error) {
             hideAlerts();

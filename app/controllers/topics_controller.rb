@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @has_voted = @topic.voters.pluck(:name).include?(session[:cas_user])
     respond_to do |format|
       format.html { render partial: '/topics/partials/topic' }
     end
@@ -59,14 +60,24 @@ class TopicsController < ApplicationController
 
     if topic.speakers.pluck(:name).include?(current_user)
       render text: "Sorry, You Can't vote for your own topic", status: :unprocessable_entity
-    elsif topic.voters.pluck(:name).include?(current_user)
-      render text: "Sorry, You can't vote more than once to the same topic", status: :unprocessable_entity
     elsif user.voted_topics.length >= 3
       render text: "Sorry, You can't vote for more than three topics", status: :unprocessable_entity
     else
       topic.voters << User.find_or_create_by(name: current_user)
       render nothing: true, status: :ok
     end
+  end
+
+  def abstain_vote
+    topic = Topic.find(params[:id])
+    topic_voters = topic.voters
+    current_user = session[:cas_user]
+    topic_voters.each { |voter|
+      if voter.name == current_user
+        topic_voters.delete(voter)
+      end
+    }
+    render nothing: true, status: :ok
   end
 
   def get_speakers

@@ -13,7 +13,5 @@ class User < ActiveRecord::Base
       end
     }
     registered_topics
-
   end
-
 end
