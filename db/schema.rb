@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309141334) do
+ActiveRecord::Schema.define(version: 20140309175754) do
 
   create_table "speakers_topics", id: false, force: true do |t|
     t.integer  "user_id",    null: false
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20140309141334) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "topic_id"
-    t.integer  "topic_registerer_id"
   end
 
   create_table "voters_topics", force: true do |t|

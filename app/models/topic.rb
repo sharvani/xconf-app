@@ -4,7 +4,7 @@ class Topic < ActiveRecord::Base
 
   has_and_belongs_to_many :speakers, class_name: User, join_table: :speakers_topics
   has_and_belongs_to_many :voters, class_name: User, join_table: :voters_topics
-  has_one :registerer, class_name: User, foreign_key: 'topic_registerer_id'
+  has_one :registerer, class_name: User
 
   def save_with_registerer(current_user)
     if save
