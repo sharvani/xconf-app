@@ -13,6 +13,8 @@ var getSpeakers = function () {
                 setTimeout(function () {
                     $("#add_speakers").click(addMoreSpeakers);
                     $("#new_speakers").focus();
+                    $("#add_speakers").attr('disabled', true);
+                    $("#new_speakers").keyup(disableSubmit);
                 }, 500);
             }
         })
@@ -28,10 +30,10 @@ var addMoreSpeakers = function () {
         data: { speakers: $("#new_speakers").val() },
         crossDomain: true,
         dataType: 'html',
-        success: function() {
-            window.location.replace("/users/own_topics");
+        success: function () {
+            window.location.replace("/users/registered_topics");
         },
-        error: function(error) {
+        error: function (error) {
             hideAlerts();
             $(".alert-danger").text(error.responseText)
             $(".alert-danger").show().delay(2000).slideUp(600);
@@ -39,6 +41,15 @@ var addMoreSpeakers = function () {
     })
 }
 
+var disableSubmit = function () {
+    if ($(this).val() != '') {
+        $("#add_speakers").attr('disabled', false);
+    }
+    else {
+        $("#add_speakers").attr('disabled', true);
+    }
+
+}
 
 $(document).ready(getSpeakers)
 $(document).on('page:load', getSpeakers)
