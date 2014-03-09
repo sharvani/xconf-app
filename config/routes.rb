@@ -12,6 +12,7 @@ XconfApp::Application.routes.draw do
 
   resources :users do
     get 'own_topics', to: 'users#own_topics', :on => :collection
+    get 'voted_topics', to: 'users#voted_topics', :on => :collection
   end
 
   resources :users, :topics, :logout

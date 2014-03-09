@@ -55,11 +55,14 @@ class TopicsController < ApplicationController
   def vote_for
     topic = Topic.find(params[:id])
     current_user = session[:cas_user]
+    user = User.find_or_create_by(name: current_user)
 
     if topic.speakers.pluck(:name).include?(current_user)
       render text: "Sorry, You Can't vote for your own topic", status: :unprocessable_entity
     elsif topic.voters.pluck(:name).include?(current_user)
       render text: "Sorry, You can't vote more than once to the same topic", status: :unprocessable_entity
+    elsif user.voted_topics.length >= 3
+      render text: "Sorry, You can't vote for more than three topics", status: :unprocessable_entity
     else
       topic.voters << User.find_or_create_by(name: current_user)
       render nothing: true, status: :ok

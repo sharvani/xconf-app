@@ -3,7 +3,7 @@
 .block {
   margin-bottom: 30px;
   background: $light-theme-color;
-  border-radius: 4px;
+  border-radius: 6px;
   height: 350px;
   word-wrap: break-word;
   overflow: hidden;
@@ -57,7 +57,7 @@ h4 {
 }
 
 .dropdown-menu {
-  top: 28px;
+  top: 29px;
   left: -137px;
   background: $light-theme-color;
   border-color: $theme-color;

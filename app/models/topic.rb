@@ -3,7 +3,7 @@ class Topic < ActiveRecord::Base
   validates_presence_of :title, :category, :description
 
   has_and_belongs_to_many :speakers, class_name: User, join_table: :speakers_topics
-  has_many :voters, class_name: User
+  has_and_belongs_to_many :voters, class_name: User, join_table: :voters_topics
   has_one :registerer, class_name: User, foreign_key: 'topic_registerer_id'
 
   def save_with_registerer(current_user)
