@@ -21,18 +21,19 @@ class Topic < ActiveRecord::Base
     end
   end
 
-  def add_speakers (speakers)
-    speakers.split(",").each { |speaker|
-      speaker = speaker.strip! || speaker
-      self.speakers << User.find_or_create_by(name: speaker)
+  def getUserTopicVoteStatus(topics, current_user)
+    @topicUserVoteStatus = []
+    topics.each { |topic|
+      vote_status = 'vote-open'
+      topic.voters.each { |voter|
+        if voter.name == current_user
+          vote_status = 'vote-cast'
+          break
+        end
+      }
+      @topicUserVoteStatus << vote_status
     }
-  end
-
-  def remove_speakers
-    current_speakers = self.speakers
-    current_speakers.each { |speaker|
-      current_speakers.delete(speaker)
-    }
+    @topicUserVoteStatus
   end
 
 end

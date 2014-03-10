@@ -3,19 +3,8 @@ class TopicsController < ApplicationController
   def index
     @topics = Topic.all.order('id desc')
     @current_user = session[:cas_user]
-    @topicUserVoteStatus = []
-    @topics.each { |topic|
-      vote_status = 'vote-open'
-      topic.voters.each { |voter|
-        if voter.name == @current_user
-          vote_status = 'vote-cast'
-          break
-        end
-      }
-      @topicUserVoteStatus << vote_status
-    }
+    @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, @current_user)
     @all_talks_active = 'active'
-
   end
 
   def new
