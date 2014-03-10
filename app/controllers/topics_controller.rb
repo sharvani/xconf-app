@@ -68,7 +68,7 @@ class TopicsController < ApplicationController
     end
   end
 
-  def abstain_vote
+  def revoke_vote
     topic = Topic.find(params[:id])
     topic_voters = topic.voters
     current_user = session[:cas_user]

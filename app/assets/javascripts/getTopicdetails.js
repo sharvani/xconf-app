@@ -13,7 +13,7 @@ var getTopicDetails = function () {
             complete: function () {
                 setTimeout(function () {
                     $("#vote").click(addVoteToTopic)
-                    $("#abstain").click(abstainVoteFromTopic)
+                    $("#revoke").click(revokeVoteFromTopic)
                 }, 500);
             }
         })
@@ -40,11 +40,11 @@ var addVoteToTopic = function () {
     })
 }
 
-var abstainVoteFromTopic = function () {
+var revokeVoteFromTopic = function () {
     hideAlerts();
     $(".alert-info").show();
     $.ajax({
-        url: '/topics/abstain_vote/' + $("#topic_id").val(),
+        url: '/topics/revoke_vote/' + $("#topic_id").val(),
         type: 'GET',
         crossDomain: true,
         dataType: 'html',
