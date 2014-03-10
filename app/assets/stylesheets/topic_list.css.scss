@@ -14,7 +14,6 @@
   height: 380px;
   word-wrap: break-word;
   overflow: hidden;
-  box-shadow: 4px 4px 10px -1px rgba(0,0,0,0.4);
   border: 1px solid #333;
 
   h2 {
@@ -37,7 +36,40 @@
     top: -32px;
     left: -10px;
     .glyphicon-cog {
-      font-size: 22px;
+      font-size: 30px;
+      &:hover {
+        color: #1a73ba;
+      }
+    }
+    &.open {
+      .glyphicon-cog {
+        color: rgb(180, 27, 88);
+      }
+    }
+    .dropdown-menu {
+      bottom: 46px;
+      right: -16px;
+      left: -292px;
+      top: auto;
+      border-color: #FFF;
+      background: rgba(0, 0, 0, 0.63);
+      padding: 0;
+      li {
+        border-top: 1px solid #FFF;
+        &:first-child {
+          border-top: 0 none;
+        }
+        a {
+          color: white;
+          font-size: 21px;
+          padding: 10px 15px;
+          border: 1px solid transparent;
+          &:hover {
+            color: #1a73ba;
+            border-color: #333;
+          }
+        }
+      }
     }
   }
 
@@ -88,12 +120,9 @@ h4 {
     border-radius: 2px;
   }
 }
-
 .dropdown-menu {
-  top: auto;
-  left: auto;
-  bottom: 29px;
-  right: -11px;
+  top: 29;
+  left: 137px;
   background: #ffffff;
   box-shadow: 0 3px 10px $shadow-color;
   font-size: 15px;
