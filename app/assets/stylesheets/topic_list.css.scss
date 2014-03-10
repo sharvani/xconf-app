@@ -1,5 +1,13 @@
 @import "mixins/colors";
 
+.no-talks {
+  width: 52%;
+  margin: 160px auto;
+  color: $light-text-color;
+  font-size: 65px;
+  font-weight: bold;
+}
+
 .block {
   margin-bottom: 30px;
   background: $light-theme-color;
@@ -59,15 +67,16 @@ h4 {
 .dropdown-menu {
   top: 29px;
   left: -137px;
-  background: $light-theme-color;
-  border-color: $theme-color;
+  background: #ffffff;
+  box-shadow: 0 3px 10px $shadow-color;
   font-size: 15px;
   > li > a {
-    color: $body-text-color;
-    padding: 3px 12px;
+    color: $text-color;
+    padding: 3px 15px;
+    font-size: 18px;
     &:hover {
-      background: $theme-color;
-      color:  $body-text-color;
+      background: #ffffff;
+      color: $anchor-hover-color;
     }
   }
 }
@@ -98,4 +107,28 @@ h4 {
 
 .edit-topic, .edit-speakers {
   cursor: pointer;
+}
+
+//******************************* Media Queries **************************************//
+
+@media (max-width: 768px) {
+
+  .no-talks {
+    font-size: 50px;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+  .no-talks {
+    font-size: 50px;
+  }
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .no-talks {
+    font-size: 50px;
+  }
 }

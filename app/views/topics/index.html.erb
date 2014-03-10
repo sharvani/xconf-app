@@ -4,16 +4,9 @@
     </div>
 <% end %>
 
-<div class="row">
-  <a href="/topics/new" class="btn btn-primary pull-right" id="register_new_topic">Register New Topic</a>
-  <% if !@topics.blank? %>
-      <a href="/topics/topics_list.xls" class="btn btn-primary pull-right">Export To CSV</a>
-  <% end %>
-</div>
-
 <% if @topics.blank? %>
-    <div class="alert alert-info">
-      Be the first one to register for XConf 2014
+    <div class="no-talks">
+      no talks available
     </div>
 <% else %>
     <%= render 'topics/partials/topic_list' %>

@@ -33,6 +33,8 @@ gem "rubycas-client"
 
 gem 'rails_12factor', group: :production
 
+gem "bootstrap-sass", "= 3.1.1.0"
+
 gem 'pry'
 
 gem 'pg'

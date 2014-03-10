@@ -1,54 +1,60 @@
-<div class="row">
-  <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
-    <%= form_for @topic do |f| %>
-        <% if @topic.errors.any? %>
-            <div id="error_explanation">
-              <ul class="col-lg-offset-3 col-md-offset-3 col-sm-offset-4">
-                <% @topic.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+<div class='modal fade form-modal' id='add_more_speakers' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <%= form_for @topic do |f| %>
+              <% if @topic.errors.any? %>
+                  <div id="error_explanation">
+                    <ul class="col-lg-offset-3 col-md-offset-3 col-sm-offset-4">
+                      <% @topic.errors.full_messages.each do |msg| %>
+                          <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+              <% end %>
 
-        <div class='form-horizontal'>
-          <div class='form-group'>
-            <div class='col-lg-3 col-md-3 col-sm-4 col-sm-4'>
-              <%= f.label :title, class: 'col-lg-11 col-md-11 col-sm-11 control-label' %>
-              <span class="required">*</span>
-            </div>
-            <div class='col-lg-9 col-md-9 col-sm-8'>
-              <%= f.text_field :title, class: 'form-control', autofocus: true, maxlength: 250 %>
-            </div>
-          </div>
+              <div class='form-horizontal'>
+                <div class='form-group'>
+                  <div class='col-lg-2 col-md-2 col-sm-3 col-xs-4'>
+                    <%= f.label :title %>
+                    <span class="required">*</span>
+                  </div>
+                  <div class='col-lg-10 col-md-10 col-sm-9'>
+                    <%= f.text_field :title, class: 'form-control', autofocus: true, maxlength: 250 %>
+                  </div>
+                </div>
 
-          <div class="form-group">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-              <label class='col-lg-11 col-md-11 col-sm-11 control-label'>Type</label>
-              <span class="required">*</span>
-            </div>
-            <div class='col-lg-9 col-md-9 col-sm-8'>
-              <%= f.select(:category, ['Crisp Talk (10min)', 'Presentation (30min)','Workshop/Long Talk (60min)'], {}, {:class => 'form-control'} ) %>
-            </div>
-          </div>
+                <div class="form-group">
+                  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                    <%= f.label :type %>
+                    <span class="required">*</span>
+                  </div>
+                  <div class='col-lg-10 col-md-10 col-sm-9'>
+                    <%= f.select(:category, ['Crisp Talk (10min)', 'Presentation (30min)', 'Workshop/Long Talk (60min)'], {}, {:class => 'form-control'}) %>
+                  </div>
+                </div>
 
-          <div class="form-group">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-              <%= f.label :description, class: 'col-lg-11 col-md-11 col-sm-11 control-label' %>
-              <span class="required">*</span>
-            </div>
-            <div class='col-lg-9 col-md-9 col-sm-8'>
-              <%= f.text_area :description, class: 'form-control', maxlength: 2000 %>
-            </div>
-          </div>
+                <div class="form-group">
+                  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                    <%= f.label :description %>
+                    <span class="required">*</span>
+                  </div>
+                  <div class='col-lg-10 col-md-10 col-sm-9'>
+                    <%= f.text_area :description, class: 'form-control', maxlength: 2000 %>
+                  </div>
+                </div>
 
-          <div class="form-group">
-            <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-4">
-              <%= f.submit 'Register Topic', class: 'btn btn-primary', id: 'submit_topic' %>
-            </div>
-          </div>
+                <div class="form-group">
+                  <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-4">
+                    <%= f.submit 'Register Topic', class: 'btn btn-primary', id: 'submit_topic' %>
+                  </div>
+                </div>
+              </div>
+
+          <% end %>
         </div>
-
-    <% end %>
+      </div>
+    </div>
   </div>
 </div>

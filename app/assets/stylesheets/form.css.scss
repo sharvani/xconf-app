@@ -1,11 +1,5 @@
 @import "mixins/colors";
 
-.new_topic, .edit_topic {
-  margin-top: 20px;
-  background: $light-theme-color;
-  padding: 20px 20px 5px 20px;
-}
-
 #submit_topic {
   margin-left: 15px;
 }
@@ -18,12 +12,12 @@ textarea.form-control {
 
 .form-horizontal {
   .control-label {
-    padding-right: 5px;
+//    padding-right: 5px;
     font-size: 17px;
   }
   .btn-primary:hover {
     background: $theme-color;
-    color: $body-text-color;
+    color: $text-color;
   }
 
 }

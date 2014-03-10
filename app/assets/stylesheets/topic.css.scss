@@ -1,7 +1,12 @@
 @import "mixins/colors";
 
 .modal-backdrop.in {
-  opacity: 0.8;
+  opacity: 0;
+}
+
+.modal-dialog {
+  width: 80%;
+  margin: 120px auto;
 }
 
 .modal-content {
@@ -19,7 +24,7 @@
 }
 
 .modal-body {
-  padding: 15px 15px 0 15px;
+  padding: 25px 45px 0 25px;
   font-size: 16px;
   .alert {
     margin-bottom: 15px;

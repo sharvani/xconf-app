@@ -3,10 +3,14 @@ class TopicsController < ApplicationController
   def index
     @topics = Topic.all.order('id desc')
     @current_user = session[:cas_user]
+    @all_talks_active = 'active'
   end
 
   def new
     @topic = Topic.new
+    respond_to do |format|
+      format.html { render partial: 'topics/partials/form' }
+    end
   end
 
   def show

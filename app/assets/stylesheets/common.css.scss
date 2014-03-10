@@ -1,23 +1,70 @@
 @import "mixins/colors";
 
 body {
-  background: $body-background-color;
-  padding: 20px 20px 0 20px;
-  color: $body-text-color;
+  color: $text-color;
+  font-family: OpenSans;
 }
 
-#wrapper {
-  background: $content-background-color;
-  padding: 20px 20px 0 20px;
-  box-shadow: 0 12px 30px $wrapper-shadow-color;
+#header {
+  padding: 5px 0;
+  box-shadow: 0 3px 10px $shadow-color;
+  margin-bottom: 20px;
+
+  img {
+    height: 90px;
+  }
+
+  #theme {
+    text-align: center;
+  }
+
+}
+
+.sidebar {
+  padding: 0;
+  box-shadow: 0 3px 10px $shadow-color;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    margin: 0 5px;
+    padding: 12px 0;
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: 1px solid $text-color;
+    list-style: none;
+    &:last-child {
+      border-bottom: none;
+    }
+
+  }
+
+  #submit_new_talk {
+    cursor: pointer;
+  }
+
+  .icon {
+    font-size: 45px;
+    font-weight: bold;
+  }
+  .icon-text {
+    font-size: 15px;
+    margin-top: 5px;
+  }
+
 }
 
 a {
-  color: white;
+  color: $text-color;
   &:hover {
-    color: $body-text-color;
+    color: $anchor-hover-color;
     text-decoration: none;
   }
+}
+
+a.active {
+  color: $anchor-active-color;
 }
 
 .row {
@@ -25,68 +72,55 @@ a {
 }
 
 .btn-primary {
-  color: $body-text-color;
+  color: $text-color;
   background: $theme-color;
   border: none;
   padding: 7px 20px;
   font-size: 16px;
   &:hover {
     background: $light-theme-color;
-    color: $body-text-color;
-  }
-}
-
-#header {
-  background: $theme-color;
-  padding: 5px 0;
-  box-shadow: 0 3px 10px $wrapper-shadow-color;
-  margin-bottom: 20px;
-
-  #logo {
-    height: 70px;
-    vertical-align: top;
-  }
-
-  #app_title {
-    display: inline-block;
-    padding-top: 10px;
-    padding-left: 5px;
-    span {
-      font-size: 11px;
-    }
-  }
-
-  #location {
-    display: inline-block;
-    letter-spacing: 3px;
-  }
-
-  h2 {
-    margin: 0;
-    letter-spacing: 13px;
+    color: $text-color;
   }
 }
 
 #username {
-  padding-top: 42px;
-  font-size: 17px;
+  padding-top: 62px;
   padding-right: 0px;
   cursor: pointer;
-  #name {
+  font-size: 20px;
+
+  &:hover .glyphicon-cog {
+    color: $anchor-hover-color;
+  }
+
+  .glyphicon-cog {
+    position: relative;
+    top: 2px;
+  }
+
+  .glyphicon-log-out {
+    padding-right: 7px;
+  }
+
+  .dropdown-toggle {
     padding-right: 10px;
   }
-  .dropdown-toggle {
-    padding-right: 15px;
-  }
+
   .dropdown-menu {
-    top: 31px;
+    top: 34px;
+  }
+
+  .open {
+    .glyphicon-cog {
+      color: $anchor-active-color;
+    }
   }
 }
 
 .caret {
-  border-top: 8px solid;
-  border-right: 6px solid transparent;
-  border-left: 6px solid transparent;
+  border-top: 10px solid;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
 }
 
 .alert {
@@ -96,13 +130,38 @@ a {
 .alert-info {
   background: $light-theme-color;
   border: none;
-  color: $body-text-color;
+  color: $text-color;
   font-size: 17px;
 }
 
-#footer {
-  text-align: center;
-  a:hover {
-    color: $light-theme-color
+//******************************* Media Queries **************************************//
+
+@media (max-width: 768px) {
+
+  #header {
+    img {
+      height: 45px;
+    }
+  }
+  #username {
+    padding: 25px 0 0 0;
+    #name {
+      padding-right: 5px;
+    }
+    .dropdown-toggle {
+      padding-right: 5px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  #header {
+    img {
+      height: 70px;
+    }
+  }
+
+  #username {
+    padding-top: 50px;
   }
 }
