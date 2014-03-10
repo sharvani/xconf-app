@@ -22,6 +22,10 @@ textarea.form-control {
 
 }
 
+.form-control {
+  color: $text-color;
+}
+
 .required {
   color: $alert-danger-bg-color;
   font-size: 20px;
