@@ -20,39 +20,7 @@ var getTopicDetails = function () {
     });
 }
 
-var addVoteToTopic = function () {
-    hideAlerts();
-    $(".alert-info").show();
-    $.ajax({
-        url: '/topics/vote_for/' + $("#topic_id").val(),
-        type: 'GET',
-        crossDomain: true,
-        dataType: 'html',
-        success: function (votes) {
-            hideAlerts();
-            window.location.replace("/topics");
-        },
-        error: function (error) {
-            hideAlerts();
-            $(".alert-danger").text(error.responseText)
-            $(".alert-danger").show().delay(2000).slideUp(600);
-        }
-    })
-}
 
-var revokeVoteFromTopic = function () {
-    hideAlerts();
-    $(".alert-info").show();
-    $.ajax({
-        url: '/topics/revoke_vote/' + $("#topic_id").val(),
-        type: 'GET',
-        crossDomain: true,
-        dataType: 'html',
-        success: function () {
-            window.location.replace("/users/voted_topics");
-        }
-    })
-}
 
 
 var hideAlerts = function () {

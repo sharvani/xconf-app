@@ -9,7 +9,21 @@ class UsersController < ApplicationController
     else
       registered_topics = user.registered_topics.order('id desc')
       voted_topics = user.voted_topics.order('id desc')
-      @topics = registered_topics.zip(voted_topics).flatten.compact
+      @topics = registered_topics.zip(voted_topics).flatten.compact.uniq
+
+
+      @topicUserVoteStatus = []
+      @topics.each { |topic|
+        vote_status = 'vote-open'
+        topic.voters.each { |voter|
+          if voter.name == @current_user
+            vote_status = 'vote-cast'
+            break
+          end
+        }
+        @topicUserVoteStatus << vote_status
+      }
+
     end
   end
 end

@@ -1,17 +1,18 @@
 <div class='topic-blocks clearfix'>
-  <% @topics.each do |topic| %>
+  <% @topics.zip(@topicUserVoteStatus).each do |topic, status| %>
       <div class='col-lg-4 col-md-4 col-sm-6'>
         <div class='block'>
-          <a href="" class="vote">
+          <a href="" class="vote <%= status %> >" data-id="<%= topic.id %>">
             <span class="vote-boundary">
               <span class="glyphicon glyphicon-ok"></span>
             </span>
             <span class="vote-title">Vote</span>
           </a>
+
           <div class="title row">
             <div class="topic-header">
               <h2>
-                <a class="topic-title" data-id="<%= topic.id %>" title="Click to Vote"><%= truncate(topic.title, length: 35) %></a>
+                <a class="topic-title" data-id="<%= topic.id %>"><%= truncate(topic.title, length: 35) %></a>
               </h2>
 
               <h4>
@@ -24,32 +25,32 @@
                 <span><%= convert_array_to_string(topic.speakers) %></span>
               </div>
               <% if topic.registerer.name == @current_user %>
-                <div class="dropdown edit-topic">
-                  <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-cog"></span>
-                  </div>
-                  <ul class="dropdown-menu dropup">
+                  <div class="dropdown edit-topic">
+                    <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-cog"></span>
+                    </div>
+                    <ul class="dropdown-menu dropup">
 
-                    <li>
-                      <a class="edit-talk" data-edit-id="<%= topic.id %>">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                        <span class="edit-text">Edit</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/topics/<%= topic.id %>" data-method="delete" data-confirm="Are You Sure">
-                        <span class="glyphicon glyphicon-trash"></span>
-                        <span class="edit-text">Delete</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                      <li>
+                        <a class="edit-talk" data-edit-id="<%= topic.id %>">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                          <span class="edit-text">Edit</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/topics/<%= topic.id %>" data-method="delete" data-confirm="Are You Sure">
+                          <span class="glyphicon glyphicon-trash"></span>
+                          <span class="edit-text">Delete</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
               <% end %>
 
             </div>
 
           </div>
-        
+
         </div>
 
       </div>
