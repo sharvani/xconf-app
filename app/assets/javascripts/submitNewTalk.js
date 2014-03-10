@@ -1,6 +1,7 @@
 var submitNewTalk = function () {
     $("#submit_new_talk").on('click', function (e) {
         $("#talk").remove();
+        $(".sidebar a").removeClass('active');
         $.ajax({
             url: '/topics/new',
             type: 'GET',
@@ -65,9 +66,9 @@ var highlightErrors = function (errors) {
 
 var hideErrors = function () {
     $("input.form-control").css('border-color', '#cccccc').css('box-shadow', 'none');
-    $("input.form-control").focus( $(this).css('box-shadow', '0 0 8px rgba(102, 175, 233, 0.6)') );
+    $("input.form-control").focus($(this).css('box-shadow', '0 0 8px rgba(102, 175, 233, 0.6)'));
     $("textarea.form-control").css('border-color', '#cccccc').css('box-shadow', 'none');
-    $("textarea.form-control").focus( $(this).css('box-shadow', '0 0 8px rgba(102, 175, 233, 0.6)') );
+    $("textarea.form-control").focus($(this).css('box-shadow', '0 0 8px rgba(102, 175, 233, 0.6)'));
 }
 
 $(document).ready(submitNewTalk)

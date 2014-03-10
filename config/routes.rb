@@ -15,8 +15,7 @@ XconfApp::Application.routes.draw do
   #match '/topics/update', controller: 'topics#update', via: [:put]
 
   resources :users do
-    get 'registered_topics', to: 'users#registered_topics', :on => :collection
-    get 'voted_topics', to: 'users#voted_topics', :on => :collection
+    get 'my_topics', to: 'users#my_topics', :on => :collection
   end
 
   resources :users, :topics, :logout

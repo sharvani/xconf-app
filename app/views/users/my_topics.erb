@@ -1,6 +1,6 @@
 <% if @topics.blank? %>
-    <div class="alert alert-info">
-      You are not contributing to any topic.
+    <div class="no-talks">
+      no talks available
     </div>
 <% else %>
     <%= render 'topics/partials/topic_list' %>

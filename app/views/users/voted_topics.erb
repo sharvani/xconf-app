@@ -1,6 +1,6 @@
 <% if @topics.blank? %>
-    <div class="alert alert-info">
-      You have not voted to any topic.
+    <div class="no-talks">
+      You have not submitted or voted any talks
     </div>
 <% else %>
     <%= render 'topics/partials/topic_list' %>

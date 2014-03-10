@@ -1,24 +1,15 @@
 class UsersController < ApplicationController
 
-  def registered_topics
+  def my_topics
     @current_user = session[:cas_user]
     user = User.find_by(name: @current_user)
+    @my_talks = 'active'
     if user.nil?
       []
     else
-      @topics = user.registered_topics.order('id desc')
+      registered_topics = user.registered_topics.order('id desc')
+      voted_topics = user.voted_topics.order('id desc')
+      @topics = registered_topics.zip(voted_topics).flatten.compact
     end
   end
-
-  def voted_topics
-    @current_user = session[:cas_user]
-    user = User.find_by(name: @current_user)
-    if user.nil?
-      []
-    else
-      @topics = user.voted_topics.order('id desc')
-    end
-
-  end
-
 end
