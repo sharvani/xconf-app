@@ -2,7 +2,7 @@
 
 body {
   color: $text-color;
-  font-family: OpenSans;
+  font-family: opensans-regular;
 }
 
 #header {
@@ -71,15 +71,16 @@ a.active {
   margin: 0;
 }
 
-.btn-primary {
+.btn {
   color: $text-color;
-  background: $theme-color;
-  border: none;
+  border: 1px solid $text-color;
+  background: white;
   padding: 7px 20px;
   font-size: 16px;
+  font-family: opensans-semibold;
   &:hover {
-    background: $light-theme-color;
-    color: $text-color;
+    background: $text-color;
+    color: #ffffff;
   }
 }
 
