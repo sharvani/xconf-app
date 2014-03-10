@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(params[:topic].permit(:title, :category, :description))
-    if @topic.save_with_registerer session[:cas_user]
+    if @topic.save_with_registerer_and_speakers(session[:cas_user], params[:speakers])
       respond_to do |format|
         format.json { render json: @topic, status: :created }
       end
