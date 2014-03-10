@@ -1,6 +1,6 @@
 @import "mixins/colors";
 
-#submit_topic {
+#submit_talk {
   margin-left: 15px;
 }
 
@@ -11,10 +11,10 @@ textarea.form-control {
 }
 
 .form-horizontal {
-  .control-label {
-//    padding-right: 5px;
+  .label {
     font-size: 17px;
   }
+
   .btn-primary:hover {
     background: $theme-color;
     color: $text-color;
@@ -22,15 +22,7 @@ textarea.form-control {
 
 }
 
-#error_explanation {
-  margin-bottom: 15px;
-  color: red;
-  h2 {
-    margin: 0;
-  }
-}
-
 .required {
-  color: red;
+  color: $alert-danger-bg-color;
   font-size: 20px;
 }

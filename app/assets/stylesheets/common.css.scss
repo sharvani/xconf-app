@@ -128,12 +128,17 @@ a.active {
   padding: 10px;
 }
 
-.alert-info {
-  background: $light-theme-color;
+.alert-danger {
+  background: $alert-danger-bg-color;
+  color: #ffffff;
   border: none;
-  color: $text-color;
-  font-size: 17px;
 }
+
+button.close {
+  color: white !important;
+  opacity: 1 !important;
+}
+
 
 //******************************* Media Queries **************************************//
 

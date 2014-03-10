@@ -24,9 +24,13 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(params[:topic].permit(:title, :category, :description))
     if @topic.save_with_registerer session[:cas_user]
-      redirect_to topics_path, {notice: 'You have successfully registered the topic'}
+      respond_to do |format|
+        format.json { render json: @topic, status: :created }
+      end
     else
-      render 'new'
+      respond_to do |format|
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
     end
   end
 

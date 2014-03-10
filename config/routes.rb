@@ -11,6 +11,8 @@ XconfApp::Application.routes.draw do
     get 'revoke_vote/:id', to: 'topics#revoke_vote', :on => :collection
   end
 
+  match '/topics/create', controller: 'topics#create', via: [:post]
+
   resources :users do
     get 'registered_topics', to: 'users#registered_topics', :on => :collection
     get 'voted_topics', to: 'users#voted_topics', :on => :collection
