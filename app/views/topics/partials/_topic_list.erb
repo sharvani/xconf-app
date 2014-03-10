@@ -1,7 +1,13 @@
 <div class='topic-blocks clearfix'>
   <% @topics.each do |topic| %>
-      <div class='col-lg-3 col-md-4 col-sm-6'>
+      <div class='col-lg-4 col-md-4 col-sm-6'>
         <div class='block'>
+          <a href="" class="vote">
+            <span class="vote-boundary">
+              <span class="glyphicon glyphicon-ok"></span>
+            </span>
+            <span class="vote-title">Vote</span>
+          </a>
           <div class="title row">
             <div class="topic-header">
               <h2>
@@ -17,11 +23,7 @@
               <div class="speaker-list">
                 <span><%= convert_array_to_string(topic.speakers) %></span>
               </div>
-            </div>
-          </div>
-          <div>
-
-            <% if topic.registerer.name == @current_user %>
+              <% if topic.registerer.name == @current_user %>
                 <div class="dropdown edit-topic">
                   <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                     <span class="glyphicon glyphicon-cog"></span>
@@ -42,11 +44,14 @@
                     </li>
                   </ul>
                 </div>
-            <% end %>
+              <% end %>
 
+            </div>
 
           </div>
+        
         </div>
+
       </div>
   <% end %>
 </div>

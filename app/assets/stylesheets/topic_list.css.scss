@@ -15,7 +15,66 @@
   word-wrap: break-word;
   overflow: hidden;
   border: 1px solid #333;
+  background: white;
+  position: relative;
+  .vote {
+    position: absolute;
+    right: 8px;
+    top: 14px;
+    display: block;
+    width: 38px;
+    height: 64px;
+    text-align: center;
+    .vote-boundary {
+      border: 4px solid #333;
+      height: 28px;
+      width: 28px;
+      display: block;
+      margin: 0 auto 3px;
+      border-radius: 5px;
+    }
+    .glyphicon-ok {
+      font-size: 34px;
+      position: absolute;
+      left: 2px;
+      color: rgb(239, 91, 161);
+      top: -5px;
+      display: none;
+    }
+    .vote-title {
 
+
+    }
+    &:hover {
+      color: #333;
+      .vote-boundary {
+        border-color: rgb(38, 189, 207);
+      }
+    }
+    &.vote-cast {
+      .glyphicon-ok {
+        display: block;
+      }  
+      .vote-boundary {
+        border-color: rgb(38, 189, 207);
+      }
+    }
+    &.vote-disabled {
+      cursor: default;
+      .glyphicon-ok {
+        display: none;
+      } 
+      .vote-boundary {
+        background-color: rgb(128, 130, 133);
+
+      } 
+      &:hover {
+        .vote-boundary {
+          border-color: #333;
+        }
+      }
+    }
+  }
   h2 {
     margin: 0;
   }
@@ -30,11 +89,9 @@
   }
 
   .edit-topic {
+    position: static;
     float: right;
-    padding-top: 5px;
-    position: relative;
-    top: -32px;
-    left: -10px;
+    margin: 16px 10px 0 0;
     .glyphicon-cog {
       font-size: 30px;
       &:hover {
@@ -47,9 +104,9 @@
       }
     }
     .dropdown-menu {
-      bottom: 46px;
-      right: -16px;
-      left: -292px;
+      bottom: 66px;
+      right: -4px;
+      left: -4px;
       top: auto;
       border-color: #FFF;
       background: rgba(0, 0, 0, 0.63);
@@ -82,7 +139,7 @@
     h2 {
       font-family: 'opensans-bold', sans-serif;
       border-bottom: 1px solid #333;
-      padding: 11px 13px;
+      padding: 11px 55px 11px 13px;
       height: 89px;
       overflow: hidden;
       a {
@@ -109,8 +166,10 @@ h4 {
 }
 
 .speaker-list {
-  padding: 8px 35px 8px 13px;
+  padding: 8px 5px 8px 13px;
   font-size: 17px;
+  float: left;
+  width: 80%;
   font-family: 'opensans-light';
   color: rgb(17, 170, 88);
   label {

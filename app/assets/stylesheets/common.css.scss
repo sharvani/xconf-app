@@ -3,13 +3,22 @@
 body {
   color: $text-color;
   font-family: opensans-regular;
+  background: whiteSmoke;
+}
+#content {
+  margin: 150px 0 0 130px;
 }
 
 #header {
   padding: 17px 0;
   box-shadow: 0 3px 10px $shadow-color;
   margin-bottom: 20px;
-
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
   img {
     height: 90px;
   }
@@ -23,6 +32,11 @@ body {
 .sidebar {
   padding: 0;
   box-shadow: 0 3px 10px $shadow-color;
+  background: white;
+  position: fixed;
+  top: 151px;
+  z-index: 9;
+  left: 0;
   ul {
     margin: 0;
     padding: 0;
