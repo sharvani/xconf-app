@@ -2,8 +2,17 @@
   font-family: 'opensans-regular';
   src: url('/assets/OpenSans-Regular.ttf')  format('truetype');
 }
+@font-face {
+  font-family: 'opensans-bold';
+  src: url('/assets/OpenSans-Bold.ttf')  format('truetype');
+}
 
 @font-face {
   font-family: 'opensans-semibold';
   src: url('/assets/OpenSans-Semibold.ttf');
+}
+
+@font-face {
+  font-family: 'opensans-light';
+  src: url('/assets/OpenSans-Light.ttf');
 }

@@ -3,29 +3,29 @@
       <div class='col-lg-3 col-md-4 col-sm-6'>
         <div class='block'>
           <div class="title row">
-            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 topic-header">
+            <div class="topic-header">
               <h2>
                 <a class="topic-title" data-id="<%= topic.id %>" title="Click to Vote"><%= truncate(topic.title, length: 35) %></a>
-                <span class="no-of-votes"><%= topic.voters.length %></span>
               </h2>
 
               <h4>
                 <span><%= topic.category %></span>
               </h4>
+              <div class="description"><%= truncate(topic.description, length: 212) %></div>
 
               <div class="speaker-list">
-                <label>Speakers</label>
                 <span><%= convert_array_to_string(topic.speakers) %></span>
               </div>
             </div>
           </div>
           <div>
+
             <% if topic.registerer.name == @current_user %>
                 <div class="dropdown edit-topic">
                   <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                    <span class="caret"></span>
+                    <span class="glyphicon glyphicon-cog"></span>
                   </div>
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu dropup">
                     <li>
                       <a class="edit-speakers" data-id="<%= topic.id %>">
                         <span class="glyphicon glyphicon-plus"></span>
@@ -48,7 +48,7 @@
                 </div>
             <% end %>
 
-            <div class="description"><%= truncate(topic.description, length: 212) %></div>
+            
           </div>
         </div>
       </div>

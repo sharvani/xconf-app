@@ -10,24 +10,24 @@
 
 .block {
   margin-bottom: 30px;
-  background: $light-theme-color;
   border-radius: 6px;
-  height: 350px;
+  height: 380px;
   word-wrap: break-word;
   overflow: hidden;
+  box-shadow: 4px 4px 10px -1px rgba(0,0,0,0.4);
+  border: 1px solid #333;
 
   h2 {
     margin: 0;
   }
 
-  .title {
-    border-bottom: 1px solid $theme-color;
-    padding: 10px 12px 6px 0px;
-  }
-
   .description {
-    padding: 6px 12px 12px 12px;
-    font-size: 20px;
+    padding: 6px 12px 9px 12px;
+    font-size: 17px;
+    font-family: 'opensans-light';
+    height: 184px;
+    overflow: hidden;
+    border-bottom: 1px solid #333;
   }
 
   .edit-topic {
@@ -36,6 +36,9 @@
     position: relative;
     top: -32px;
     left: -10px;
+    .glyphicon-cog {
+      font-size: 22px;
+    }
   }
 
   .edit-text {
@@ -44,6 +47,26 @@
 
   .topic-header {
     padding-right: 0;
+    h2 {
+      font-family: 'opensans-bold', sans-serif;
+      border-bottom: 1px solid #333;
+      padding: 11px 13px;
+      height: 89px;
+      overflow: hidden;
+      a {
+        color: rgb(26, 115, 186);
+        &:hover {
+          color: rgb(247, 143, 49);
+        }
+      }
+    }
+    h4 {
+     font-family: 'opensans-semibold', sans-serif;
+     color: rgb(158, 120, 95); 
+     font-size: 17px;
+     padding: 11px 13px;
+     border-bottom: 1px solid #333;
+    }
   }
 
 }
@@ -54,8 +77,10 @@ h4 {
 }
 
 .speaker-list {
-  padding-top: 10px;
-  font-size: 15px;
+  padding: 8px 35px 8px 13px;
+  font-size: 17px;
+  font-family: 'opensans-light';
+  color: rgb(17, 170, 88);
   label {
     background: $theme-color;
     padding: 4px;
@@ -65,8 +90,10 @@ h4 {
 }
 
 .dropdown-menu {
-  top: 29px;
-  left: -137px;
+  top: auto;
+  left: auto;
+  bottom: 29px;
+  right: -11px;
   background: #ffffff;
   box-shadow: 0 3px 10px $shadow-color;
   font-size: 15px;
