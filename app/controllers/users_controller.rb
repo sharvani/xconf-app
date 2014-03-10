@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if user.nil?
       []
     else
-      @topics = user.get_registered_topics(@current_user)
+      @topics = user.registered_topics.order('id desc')
     end
   end
 

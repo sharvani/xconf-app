@@ -4,13 +4,15 @@ class Topic < ActiveRecord::Base
 
   has_and_belongs_to_many :speakers, class_name: User, join_table: :speakers_topics
   has_and_belongs_to_many :voters, class_name: User, join_table: :voters_topics
-  has_one :registerer, class_name: User
+  belongs_to :registerer, class_name: User
 
   def save_with_registerer(current_user)
     if save
-      self.registerer = User.create(name: current_user)
-      self.speakers << User.find_by(name: current_user)
+      user = User.find_or_create_by(name: current_user)
+      user.registered_topics << self
+      self.speakers << user
     end
+
   end
 
 
