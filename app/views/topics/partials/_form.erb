@@ -46,6 +46,16 @@
                 </div>
 
                 <div class="form-group">
+                  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+                    <label>Speakers (upto 5)</label>
+                    <span class="required">*</span>
+                  </div>
+                  <div class='col-lg-10 col-md-10 col-sm-9'>
+                    <input class="form-control" id="tag1" value="<%= session[:cas_user] %>" />  
+                  </div>
+                </div>
+
+                <div class="form-group">
                   <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-3">
                     <%= f.submit 'Submit', class: 'btn', id: 'submit_topic' %>
                     <%= f.button 'Cancel', class: 'btn' %>

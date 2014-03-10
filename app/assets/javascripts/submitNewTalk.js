@@ -9,6 +9,7 @@ var submitNewTalk = function () {
             success: function (data) {
                 $("#submit_new_talk").css('color', 'rgb(180, 27, 88)');
                 $(data).modal('show');
+
             },
             complete: function () {
                 setTimeout(function () {
@@ -18,6 +19,19 @@ var submitNewTalk = function () {
 //                    $('#book_title').focus();
 //                    $('#book_title').on('input', searchTitleRelatedBooks);
 //                    enableAutocomplete();
+                    $('#tag1').tagsInput({
+                        'width': '100%',
+                        'defaultText':'Add a speaker',
+                        'onChange': function() {
+                            var tagCount = $(".tagsinput .tag").length;
+                            if (tagCount >= 5) {
+                                $(".tagsinput input").hide();                
+                            } else {
+                                $(".tagsinput input").show().focus(); 
+                            }  
+                        }
+
+                    });   
                 }, 500);
             }
         })
