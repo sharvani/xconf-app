@@ -11,6 +11,7 @@
               <h4>
                 <span><%= topic.category %></span>
               </h4>
+
               <div class="description"><%= truncate(topic.description, length: 212) %></div>
 
               <div class="speaker-list">
@@ -26,8 +27,9 @@
                     <span class="glyphicon glyphicon-cog"></span>
                   </div>
                   <ul class="dropdown-menu dropup">
+
                     <li>
-                      <a href="/topics/<%= topic.id %>/edit">
+                      <a class="edit-talk" data-edit-id="<%= topic.id %>">
                         <span class="glyphicon glyphicon-pencil"></span>
                         <span class="edit-text">Edit</span>
                       </a>
@@ -42,7 +44,7 @@
                 </div>
             <% end %>
 
-            
+
           </div>
         </div>
       </div>

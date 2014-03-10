@@ -12,15 +12,27 @@ class Topic < ActiveRecord::Base
       user.registered_topics << self
       self.add_speakers(speakers)
     end
+  end
 
+  def update_with_speakers(params)
+    if self.update(params[:topic].permit(:title, :category, :description))
+      self.remove_speakers
+      self.add_speakers(params[:speakers])
+    end
   end
 
   def add_speakers (speakers)
-    speakers.split(",").each{ | speaker |
+    speakers.split(",").each { |speaker|
       speaker = speaker.strip! || speaker
       self.speakers << User.find_or_create_by(name: speaker)
     }
   end
 
+  def remove_speakers
+    current_speakers = self.speakers
+    current_speakers.each { |speaker|
+      current_speakers.delete(speaker)
+    }
+  end
 
 end

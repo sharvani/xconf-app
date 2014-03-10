@@ -8,6 +8,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    @current_speakers = session[:cas_user]
     respond_to do |format|
       format.html { render partial: 'topics/partials/form' }
     end
@@ -36,14 +37,22 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
+    @current_speakers = @topic.speakers.pluck(:name).map { |x| x }.join(',')
+    respond_to do |format|
+      format.html { render partial: 'topics/partials/form' }
+    end
   end
 
   def update
     @topic = Topic.find(params[:id])
-    if @topic.update(params[:topic].permit(:title, :category, :description))
-      redirect_to topics_path, {notice: 'You have successfully updated the topic'}
+    if @topic.update_with_speakers(params)
+      respond_to do |format|
+        format.json { render json: @topic, status: :created }
+      end
     else
-      render 'edit'
+      respond_to do |format|
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
     end
   end
 

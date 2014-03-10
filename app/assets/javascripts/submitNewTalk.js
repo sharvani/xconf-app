@@ -1,6 +1,6 @@
 var submitNewTalk = function () {
     $("#submit_new_talk").on('click', function (e) {
-        $("#new_talk").remove();
+        $("#talk").remove();
         $.ajax({
             url: '/topics/new',
             type: 'GET',
@@ -26,7 +26,7 @@ var submitNewTalk = function () {
                         }
 
                     });
-                    $("#submit_talk").click(postMyForm);
+                    $("#submit_talk").click(createTalk);
                     $(".close").click(hideAlerts);
                     $("#topic_title").focus();
                 }, 500);
@@ -35,14 +35,14 @@ var submitNewTalk = function () {
     });
 }
 
-var postMyForm = function (e) {
+var createTalk = function (e) {
     e.preventDefault();
     hideAlerts();
     hideErrors();
     var valuesToSubmit = $("#new_topic").serialize();
 
     $.ajax({
-        url: '/topics/create',
+        url: '/topics',
         type: 'POST',
         data: valuesToSubmit,
         dataType: 'json',
