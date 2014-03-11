@@ -1,4 +1,4 @@
-<table>
+<table border="1">
   <tr>
     <th>Title</th>
     <th>Type</th>
@@ -15,11 +15,7 @@
         <td><%= topic.description %></td>
         <td><%= topic.registerer.name %></td>
         <td><%= convert_array_to_string(topic.speakers) %></td>
-        <td>
-          <% topic.voters.each do |voter| %>
-              <%= voter.name %>
-          <% end %>
-        </td>
+        <td><%= convert_array_to_string(topic.voters) %></td>
         <td><%= topic.voters.length %></td>
       </tr>
   <% end %>
