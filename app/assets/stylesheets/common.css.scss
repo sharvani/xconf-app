@@ -10,7 +10,7 @@ body {
 }
 
 #header {
-  padding: 17px 0;
+  padding: 12px 0;
   box-shadow: 0 3px 10px $shadow-color;
   margin-bottom: 20px;
   background: white;
@@ -74,6 +74,7 @@ a {
   &:hover {
     color: $anchor-hover-color;
     text-decoration: none;
+    cursor: pointer;
   }
 }
 
@@ -99,10 +100,10 @@ a.active {
 }
 
 #username {
-  padding-top: 62px;
+  padding-top: 64px;
   padding-right: 0px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 19px;
 
   &:hover .glyphicon-cog {
     color: $anchor-hover-color;
@@ -114,7 +115,7 @@ a.active {
   }
 
   .glyphicon-log-out {
-    padding-right: 7px;
+    padding-right: 14px;
   }
 
   .dropdown-toggle {
@@ -122,7 +123,7 @@ a.active {
   }
 
   .dropdown-menu {
-    top: 34px;
+    top: 40px;
   }
 
   .open {
@@ -164,7 +165,7 @@ button.close {
     }
   }
   #username {
-    padding: 25px 0 0 0;
+    padding: 22px 0 0 0;
     #name {
       padding-right: 5px;
     }

@@ -9,18 +9,10 @@ var getTopicDetails = function () {
             dataType: 'html',
             success: function (data) {
                 $(data).modal('show');
-            },
-            complete: function () {
-                setTimeout(function () {
-                    $("#vote").click(addVoteToTopic)
-                    $("#revoke").click(revokeVoteFromTopic)
-                }, 500);
             }
         })
     });
 }
-
-
 
 
 var hideAlerts = function () {

@@ -1,11 +1,11 @@
 @import "mixins/colors";
 
 .no-talks {
-  width: 52%;
-  margin: 160px auto;
+  margin-top: 160px;
   color: $light-text-color;
-  font-size: 65px;
+  font-size: 57px;
   font-weight: bold;
+  text-align: center;
 }
 
 .block {
@@ -41,10 +41,6 @@
       color: rgb(239, 91, 161);
       top: -5px;
       display: none;
-    }
-    .vote-title {
-
-
     }
     &:hover {
       color: #333;
@@ -95,6 +91,7 @@
     margin: 16px 10px 0 0;
     .glyphicon-cog {
       font-size: 30px;
+      cursor: pointer;
       &:hover {
         color: #1a73ba;
       }
@@ -188,18 +185,13 @@ h4 {
   font-size: 15px;
   > li > a {
     color: $text-color;
-    padding: 3px 15px;
+    padding: 3px 20px;
     font-size: 18px;
     &:hover {
       background: #ffffff;
       color: $anchor-hover-color;
     }
   }
-}
-
-#register_new_topic {
-  margin-bottom: 20px;
-  margin-left: 20px;
 }
 
 .topic-title {
@@ -211,26 +203,13 @@ h4 {
   }
 }
 
-.no-of-votes {
-  padding: 4px;
-  border-radius: 4px;
-  font-size: 18px;
-  color: white;
-  background: $theme-color;
-  position: relative;
-  top: -3px;
-}
-
-.edit-topic, .edit-speakers {
-  cursor: pointer;
-}
-
 //******************************* Media Queries **************************************//
 
 @media (max-width: 768px) {
 
   .no-talks {
     font-size: 50px;
+    margin-top: 80px;
   }
 
 }
@@ -239,6 +218,7 @@ h4 {
 
   .no-talks {
     font-size: 50px;
+    margin-top: 100px;
   }
 
 }

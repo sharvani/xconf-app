@@ -1,6 +1,6 @@
 <% if @topics.blank? %>
-    <div class="no-talks">
-      no talks available
+    <div class="no-talks col-lg-offset-1 col-lg-11 col-md-offset-1 col-md-11 col-sm-offset-2 col-md-10">
+      You have not submitted or voted any topic
     </div>
 <% else %>
     <%= render 'topics/partials/topic_list' %>

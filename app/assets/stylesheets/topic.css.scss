@@ -6,20 +6,11 @@
 
 .modal-dialog {
   width: 80%;
-  margin: 120px auto;
+  margin: 145px auto;
 }
 
 .modal-content {
   word-wrap: break-word;
-  .no-of-votes {
-    background: $light-theme-color;
-  }
-}
-
-.loader {
-  background: url('loader.gif') no-repeat;
-  background-size: contain;
-  padding-left: 28px;
 }
 
 .modal-body {
