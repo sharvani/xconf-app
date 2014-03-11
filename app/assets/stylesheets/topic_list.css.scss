@@ -11,7 +11,7 @@
 .block {
   margin-bottom: 30px;
   border-radius: 6px;
-  height: 380px;
+  height: 400px;
   word-wrap: break-word;
   overflow: hidden;
   border: 1px solid #333;
@@ -20,7 +20,7 @@
   .vote {
     position: absolute;
     right: 8px;
-    top: 14px;
+    top: 21px;
     display: block;
     width: 38px;
     height: 64px;
@@ -88,7 +88,7 @@
   .edit-topic {
     position: static;
     float: right;
-    margin: 16px 10px 0 0;
+    margin: 29px 10px 0 0;
     .glyphicon-cog {
       font-size: 30px;
       cursor: pointer;
@@ -102,7 +102,7 @@
       }
     }
     .dropdown-menu {
-      bottom: 66px;
+      bottom: 88px;
       right: -4px;
       left: -4px;
       top: auto;

@@ -17,10 +17,12 @@ var editTalk = function () {
                         'defaultText': 'Add a speaker',
                         'onChange': function () {
                             var tagCount = $(".tagsinput .tag").length;
+                            tagInput = $(".tagsinput input")
+                            tagInput.attr('maxlength', 30);
                             if (tagCount >= 5) {
-                                $(".tagsinput input").hide();
+                                tagInput.hide();
                             } else {
-                                $(".tagsinput input").show().focus();
+                                tagInput.show().focus();
                             }
                         }
 

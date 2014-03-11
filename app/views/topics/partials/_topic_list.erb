@@ -12,14 +12,14 @@
           <div class="title row">
             <div class="topic-header">
               <h2>
-                <a class="topic-title" data-id="<%= topic.id %>"><%= truncate(topic.title, length: 35) %></a>
+                <a class="topic-title" data-id="<%= topic.id %>"><%= truncate(topic.title, length: 40) %></a>
               </h2>
 
               <h4>
                 <span><%= topic.category %></span>
               </h4>
 
-              <div class="description"><%= truncate(topic.description, length: 212) %></div>
+              <div class="description"><%= truncate(topic.description, length: 360) %></div>
 
               <div class="speaker-list">
                 <span><%= convert_array_to_string(topic.speakers) %></span>

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     else
       registered_topics = user.registered_topics.order('id desc')
       voted_topics = user.voted_topics.order('id desc')
-      @topics = registered_topics.zip(voted_topics).flatten.compact.uniq
+      @topics = registered_topics.concat(voted_topics).uniq
       @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, @current_user)
     end
   end

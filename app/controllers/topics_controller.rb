@@ -69,6 +69,7 @@ class TopicsController < ApplicationController
     respond_to do |format|
       format.xls
     end
+
   end
 
   def vote_for
