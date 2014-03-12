@@ -3,6 +3,7 @@
 <head>
   <title>CONF Gurgaon</title>
   <link rel="icon" href="/assets/favicon.ico"/>
+  <meta name="viewport" content="width=768px; user-scalable=no">
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -59,7 +60,7 @@
           <div class="icon-text">My Talk</div>
         </a>
       </li>
-      <li>
+      <li class="hidden-md hidden-sm hidden-xs">
         <a href="/topics/topics_list.xls">
           <span class="glyphicon glyphicon-download-alt icon"></span>
 
@@ -69,7 +70,7 @@
     </ul>
   </div>
 
-  <div class="main-content col-lg-11">
+  <div class="main-content">
     <%= yield %>
   </div>
 </div>

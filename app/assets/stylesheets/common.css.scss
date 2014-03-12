@@ -5,6 +5,7 @@ body {
   font-family: opensans-regular;
   background: whiteSmoke;
 }
+
 #content {
   margin: 150px 0 0 130px;
 }
@@ -46,10 +47,10 @@ body {
     padding: 12px 0;
     vertical-align: middle;
     text-align: center;
-    border-bottom: 1px solid $text-color;
+    border-top: 1px solid $text-color;
     list-style: none;
-    &:last-child {
-      border-bottom: none;
+    &:first-child {
+      border-top: none;
     }
 
   }
@@ -154,8 +155,27 @@ button.close {
   opacity: 1 !important;
 }
 
-
 //******************************* Media Queries **************************************//
+
+@media (max-width: 500px) {
+  .sidebar {
+    top: 96px;
+    width: 92%;
+    left: 20px;
+    li {
+      float: left;
+      width: 31%;
+      border-top: none;
+      border-left: 1px solid $text-color;
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+   #content {
+    margin: 217px 0 0 0px;
+  }
+}
 
 @media (max-width: 768px) {
 
@@ -163,6 +183,9 @@ button.close {
     img {
       height: 45px;
     }
+  }
+  .sidebar {
+    top: 96px;
   }
   #username {
     padding: 22px 0 0 0;
@@ -172,6 +195,9 @@ button.close {
     .dropdown-toggle {
       padding-right: 5px;
     }
+  }
+  #content {
+    margin: 95px 0 0 77px;
   }
 }
 
@@ -185,4 +211,20 @@ button.close {
   #username {
     padding-top: 50px;
   }
+
+  #content {
+    margin: 135px 0 0 132px;
+  }
+
+  .sidebar {
+    top: 135px;
+  }
+
 }
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  #content {
+    margin: 150px 0 0 100px;
+  }
+}
+

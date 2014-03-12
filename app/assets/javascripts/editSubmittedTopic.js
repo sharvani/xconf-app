@@ -1,7 +1,6 @@
 var editTalk = function () {
     $(".edit-talk").click(function () {
         var id = $(this).attr("data-edit-id")
-        $("#talk").remove();
         $.ajax({
             url: '/topics/' + id + '/edit',
             type: 'GET',
@@ -27,6 +26,10 @@ var editTalk = function () {
                         }
 
                     });
+                    $("#talk").on('hidden.bs.modal', function () {
+                        $(this).remove();
+                        window.location.replace("/topics");
+                    })
                     $("#submit_talk").click(updateTalk(id));
                     $(".close").click(hideAlerts);
                     $("#topic_title").focus();

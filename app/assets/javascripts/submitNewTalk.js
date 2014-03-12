@@ -1,6 +1,6 @@
 var submitNewTalk = function () {
     $("#submit_new_talk").on('click', function (e) {
-        $("#talk").remove();
+
         $(".sidebar a").removeClass('active');
         $.ajax({
             url: '/topics/new',
@@ -32,6 +32,9 @@ var submitNewTalk = function () {
                     $("#submit_talk").click(createTalk);
                     $(".close").click(hideAlerts);
                     $("#topic_title").focus();
+                    $("#talk").on('hidden.bs.modal', function () {
+                        window.location.replace("/topics");
+                    })
                 }, 500);
             }
         })

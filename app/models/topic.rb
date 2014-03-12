@@ -38,14 +38,12 @@ class Topic < ActiveRecord::Base
 
   def getUserTopicVoteStatus(topics, current_user)
     @topicUserVoteStatus = []
+    user = User.find_or_create_by(name: current_user)
     topics.each { |topic|
       vote_status = 'vote-open'
-      topic.voters.each { |voter|
-        if voter.name == current_user
-          vote_status = 'vote-cast'
-          break
-        end
-      }
+      if user.voted_topics.include? topic
+        vote_status = 'vote-cast'
+      end
       @topicUserVoteStatus << vote_status
     }
     @topicUserVoteStatus

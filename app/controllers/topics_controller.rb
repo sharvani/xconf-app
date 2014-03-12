@@ -65,7 +65,7 @@ class TopicsController < ApplicationController
   end
 
   def topics_list
-    @topics = Topic.all
+    @topics = Topic.all.order('id desc')
     respond_to do |format|
       format.xls
     end
