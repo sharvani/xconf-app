@@ -157,25 +157,25 @@ button.close {
 
 //******************************* Media Queries **************************************//
 
-@media (max-width: 500px) {
-  .sidebar {
-    top: 96px;
-    width: 92%;
-    left: 20px;
-    li {
-      float: left;
-      width: 31%;
-      border-top: none;
-      border-left: 1px solid $text-color;
-      &:first-child {
-        border-left: none;
-      }
-    }
-  }
-   #content {
-    margin: 217px 0 0 0px;
-  }
-}
+//@media (max-width: 500px) {
+//  .sidebar {
+//    top: 78px;
+//    width: 92%;
+//    left: 20px;
+//    li {
+//      float: left;
+//      width: 31%;
+//      border-top: none;
+//      border-left: 1px solid $text-color;
+//      &:first-child {
+//        border-left: none;
+//      }
+//    }
+//  }
+//  #content {
+//    margin: 185px 0 0 0px;
+//  }
+//}
 
 @media (max-width: 768px) {
 
@@ -227,4 +227,3 @@ button.close {
     margin: 150px 0 0 100px;
   }
 }
-
