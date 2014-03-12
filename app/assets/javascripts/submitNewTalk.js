@@ -1,14 +1,15 @@
 var submitNewTalk = function () {
     $("#submit_new_talk").on('click', function (e) {
 
-        $(".sidebar a").removeClass('active');
+        var activeSidebarLink = $('.active');
+        activeSidebarLink.removeClass('active');
         $.ajax({
             url: '/topics/new',
             type: 'GET',
             crossDomain: true,
             dataType: 'html',
             success: function (data) {
-                $("#submit_new_talk").css('color', 'rgb(180, 27, 88)');
+                $("#submit_new_talk").addClass('active');
                 $(data).modal('show');
 
             },
@@ -33,7 +34,10 @@ var submitNewTalk = function () {
                     $(".close").click(hideAlerts);
                     $("#topic_title").focus();
                     $("#talk").on('hidden.bs.modal', function () {
-                        window.location.replace("/topics");
+                        $(this).remove();
+                        $("tester").remove();
+                        $("#submit_new_talk").removeClass('active');
+                        activeSidebarLink.addClass('active');
                     })
                 }, 500);
             }
