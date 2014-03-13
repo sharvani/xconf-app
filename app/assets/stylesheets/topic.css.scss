@@ -31,18 +31,12 @@
   margin-top: 5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .modal {
     z-index: 5050;
   }
   .modal-dialog {
     width: 100%;
-    margin-top: 20px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .modal-dialog {
-    width: 100%;
+    margin-top: 10px;
   }
 }

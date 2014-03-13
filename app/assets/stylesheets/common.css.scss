@@ -158,27 +158,40 @@ button.close {
 
 //******************************* Media Queries **************************************//
 
-//@media (max-width: 500px) {
-//  .sidebar {
-//    top: 78px;
-//    width: 92%;
-//    left: 20px;
-//    li {
-//      float: left;
-//      width: 31%;
-//      border-top: none;
-//      border-left: 1px solid $text-color;
-//      &:first-child {
-//        border-left: none;
-//      }
-//    }
-//  }
-//  #content {
-//    margin: 185px 0 0 0px;
-//  }
-//}
+@media (min-width: 400px) and (max-width: 500px) {
 
-@media (max-width: 768px) {
+  #header {
+    border-bottom: 1px solid $text-color;
+    img {
+      height: 55px;
+    }
+  }
+  .sidebar {
+    top: 82px;
+    width: 92%;
+    left: 20px;
+    border: 1px solid $text-color;
+    border-top: none;
+    li {
+      float: left;
+      width: 31%;
+      border-top: none;
+      border-left: 1px solid $text-color;
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+  #content {
+    margin: 205px 0 0 0px;
+  }
+
+  #username {
+    padding-top: 31px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
 
   #header {
     img {
@@ -198,7 +211,7 @@ button.close {
     }
   }
   #content {
-    margin: 95px 0 0 77px;
+    margin: 98px 0 0 114px;
   }
 }
 
