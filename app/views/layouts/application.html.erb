@@ -46,13 +46,15 @@
           <div class="icon-text">All Talks</div>
         </a>
       </li>
-      <li>
-        <a id="submit_new_talk">
-          <span class="glyphicon glyphicon-plus icon"></span>
+      <% if !prevent_submission %>
+          <li>
+            <a id="submit_new_talk">
+              <span class="glyphicon glyphicon-plus icon"></span>
 
-          <div class="icon-text">Submit A Talk</div>
-        </a>
-      </li>
+              <div class="icon-text">Submit A Talk</div>
+            </a>
+          </li>
+      <% end %>
       <li>
         <a href="/users/my_topics" class="<%= @my_talks %>">
           <span class="glyphicon glyphicon-heart icon"></span>

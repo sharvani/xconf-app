@@ -1,7 +1,5 @@
 var bindToVote = function () {
 
-    checkForVotes();
-
     $(".vote").click(function (e) {
         e.preventDefault();
         var target = $(this);
@@ -24,7 +22,6 @@ var addVoteForTopic = function (id, target) {
         dataType: 'html',
         success: function () {
             target.addClass('vote-cast').removeClass('vote-open');
-            checkForVotes();
         }
     })
 }
@@ -38,27 +35,9 @@ var revokeVoteFromTopic = function (id, target) {
         dataType: 'html',
         success: function () {
             target.addClass('vote-open').removeClass('vote-cast');
-            checkForVotes();
+//            checkForVotes();
         }
     })
-}
-
-var checkForVotes = function () {
-    if ($(".vote-cast").length == 3) {
-        $.each($(".vote"), function (index, value) {
-            if ($(value).hasClass('vote-open')) {
-                $(this).addClass('vote-disabled').removeClass('vote-open');
-            }
-        });
-    }
-
-    else {
-        $.each($(".vote"), function (index, value) {
-            if ($(value).hasClass('vote-disabled')) {
-                $(this).addClass('vote-open').removeClass('vote-disabled');
-            }
-        });
-    }
 }
 
 $(document).ready(bindToVote)

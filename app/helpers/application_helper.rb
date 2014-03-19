@@ -4,4 +4,8 @@ module ApplicationHelper
     array.map { |x| x.name }.join(', ')
   end
 
+  def prevent_submission
+    Time.now > Time.new(2014, 3, 24, 0, 0, 0, "+05:30")
+  end
+
 end
