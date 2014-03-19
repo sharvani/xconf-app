@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def prevent_submission
-    Time.now > Time.new(2014, 3, 24, 0, 0, 0, "+05:30")
+    Time.now > Time.new(2014, 3, 25, 0, 0, 0, "+05:30")
   end
 
 end
