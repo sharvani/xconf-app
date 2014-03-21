@@ -15,8 +15,8 @@
         <td><%= topic.description %></td>
         <td><%= topic.registerer.name %></td>
         <td><%= convert_array_to_string(topic.speakers) %></td>
-        <td><%= convert_array_to_string(topic.voters) %></td>
-        <td><%= topic.voters.length %></td>
+        <td><%= convert_array_to_string(topic.voters.uniq) %></td>
+        <td><%= topic.voters.uniq.length %></td>
       </tr>
   <% end %>
 </table>

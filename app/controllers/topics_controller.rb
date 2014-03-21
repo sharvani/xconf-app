@@ -74,7 +74,10 @@ class TopicsController < ApplicationController
 
   def vote_for
     topic = Topic.find(params[:id])
-    topic.voters << User.find_or_create_by(name: session[:cas_user])
+    user = User.find_or_create_by(name: session[:cas_user])
+    if !topic.voters.include? user
+      topic.voters << user
+    end
     render nothing: true, status: :created
   end
 
