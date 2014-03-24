@@ -35,7 +35,6 @@ var revokeVoteFromTopic = function (id, target) {
         dataType: 'html',
         success: function () {
             target.addClass('vote-open').removeClass('vote-cast');
-//            checkForVotes();
         }
     })
 }
