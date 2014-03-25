@@ -1,16 +1,22 @@
 var bindToVote = function () {
 
-    $(".vote").click(function (e) {
-        e.preventDefault();
-        var target = $(this);
-        var id = target.attr('data-id');
-        if (target.hasClass('vote-open')) {
-            addVoteForTopic(id, target)
-        }
-        else {
-            revokeVoteFromTopic(id, target)
-        }
-    })
+    if (new Date() > new Date("March 26, 2014 12:00:00")) {
+        $(".vote").addClass('vote-disabled')
+    }
+
+    else {
+        $(".vote").click(function (e) {
+            e.preventDefault();
+            var target = $(this);
+            var id = target.attr('data-id');
+            if (target.hasClass('vote-open')) {
+                addVoteForTopic(id, target)
+            }
+            else {
+                revokeVoteFromTopic(id, target)
+            }
+        })
+    }
 }
 
 var addVoteForTopic = function (id, target) {

@@ -51,23 +51,24 @@
     &.vote-cast {
       .glyphicon-ok {
         display: block;
-      }  
+      }
       .vote-boundary {
         border-color: rgb(38, 189, 207);
       }
     }
     &.vote-disabled {
       cursor: default;
-      .glyphicon-ok {
-        display: none;
-      } 
       .vote-boundary {
-        background-color: rgb(128, 130, 133);
-
-      } 
+        background-color: lightgray;
+      }
       &:hover {
         .vote-boundary {
           border-color: #333;
+        }
+      }
+      &.vote-cast {
+        .vote-boundary {
+          border-color: rgb(38, 189, 207);
         }
       }
     }
@@ -148,11 +149,11 @@
       }
     }
     h4 {
-     font-family: 'opensans-semibold', sans-serif;
-     color: rgb(158, 120, 95); 
-     font-size: 17px;
-     padding: 11px 13px;
-     border-bottom: 1px solid #333;
+      font-family: 'opensans-semibold', sans-serif;
+      color: rgb(158, 120, 95);
+      font-size: 17px;
+      padding: 11px 13px;
+      border-bottom: 1px solid #333;
     }
   }
 
@@ -177,6 +178,7 @@ h4 {
     border-radius: 2px;
   }
 }
+
 .dropdown-menu {
   top: 29;
   left: 137px;
