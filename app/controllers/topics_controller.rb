@@ -8,10 +8,16 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new
-    @current_speakers = session[:cas_user]
-    respond_to do |format|
-      format.html { render partial: 'topics/partials/form' }
+    if Time.now > Time.new(2014, 3, 25, 0, 0, 0, "+05:30")
+      respond_to do |format|
+        format.html { render template: 'topics/submission_closed' }
+      end
+    else
+      @topic = Topic.new
+      @current_speakers = session[:cas_user]
+      respond_to do |format|
+        format.html { render partial: 'topics/partials/form' }
+      end
     end
   end
 

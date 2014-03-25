@@ -37,12 +37,14 @@
                           <span class="edit-text">Edit</span>
                         </a>
                       </li>
-                      <li>
-                        <a href="/topics/<%= topic.id %>" data-method="delete" data-confirm="Are you sure?">
-                          <span class="glyphicon glyphicon-trash"></span>
-                          <span class="edit-text">Delete</span>
-                        </a>
-                      </li>
+                      <% if !prevent_submission %>
+                          <li>
+                            <a href="/topics/<%= topic.id %>" data-method="delete" data-confirm="Are you sure?">
+                              <span class="glyphicon glyphicon-trash"></span>
+                              <span class="edit-text">Delete</span>
+                            </a>
+                          </li>
+                      <% end %>
                     </ul>
                   </div>
               <% end %>
