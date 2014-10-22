@@ -8,7 +8,7 @@ describe "ConfigSeed" do
     Rake::Task.define_task :environment
   end
 
-  context "config_seed:add_admin_users" do
+  context "add_admin_users" do
     before :each do
       Rake::Task['config_seed:add_admin_users'].reenable
     end
