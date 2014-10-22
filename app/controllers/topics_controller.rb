@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all.order('id desc')
-    @current_user = session[:cas_user]
+    @current_user = session[:okta_user]
     @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, @current_user)
     @all_talks_active = 'active'
   end
@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
       end
     else
       @topic = Topic.new
-      @current_speakers = session[:cas_user]
+      @current_speakers = session[:okta_user]
       respond_to do |format|
         format.html { render partial: 'topics/partials/form' }
       end
@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @has_voted = @topic.voters.pluck(:name).include?(session[:cas_user])
+    @has_voted = @topic.voters.pluck(:name).include?(session[:okta_user])
     respond_to do |format|
       format.html { render partial: '/topics/partials/topic' }
     end
@@ -31,7 +31,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(params[:topic].permit(:title, :category, :description))
-    if @topic.save_with_registerer_and_speakers(session[:cas_user], params[:speakers])
+    if @topic.save_with_registerer_and_speakers(session[:okta_user], params[:speakers])
       respond_to do |format|
         format.json { render json: @topic, status: :created }
       end
@@ -80,7 +80,7 @@ class TopicsController < ApplicationController
 
   def vote_for
     topic = Topic.find(params[:id])
-    user = User.find_or_create_by(name: session[:cas_user])
+    user = User.find_or_create_by(name: session[:okta_user])
     if !topic.voters.include? user
       topic.voters << user
     end
@@ -91,7 +91,7 @@ class TopicsController < ApplicationController
     topic = Topic.find(params[:id])
     topic_voters = topic.voters
     topic_voters.each { |voter|
-      if voter.name == session[:cas_user]
+      if voter.name == session[:okta_user]
         topic_voters.delete(voter)
       end
     }

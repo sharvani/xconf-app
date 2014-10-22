@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def my_topics
-    @current_user = session[:cas_user]
+    @current_user = session[:okta_user]
     user = User.find_by(name: @current_user)
     @my_talks = 'active'
     if user.nil?
