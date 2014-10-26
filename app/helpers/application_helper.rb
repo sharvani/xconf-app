@@ -11,4 +11,8 @@ module ApplicationHelper
   def category_options(categories)
     options_for_select(categories.map { |category| ["#{category.name} (#{category.time_in_min}min)", category.id] })
   end
+
+  def admin_user(user)
+    AdminUser.exists?(name: user)
+  end
 end

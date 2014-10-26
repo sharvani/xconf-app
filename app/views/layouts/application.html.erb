@@ -62,13 +62,15 @@
           <div class="icon-text">My Talk</div>
         </a>
       </li>
-      <li>
-        <a href="/topics/topics_list.xls">
-          <span class="glyphicon glyphicon-download-alt icon"></span>
+      <% if admin_user(@current_user) %>
+          <li>
+            <a href="/topics/topics_list.xls">
+              <span class="glyphicon glyphicon-download-alt icon"></span>
 
-          <div class="icon-text">Export To CSV</div>
-        </a>
-      </li>
+              <div class="icon-text">Export To CSV</div>
+            </a>
+          </li>
+      <% end %>
     </ul>
   </div>
 
