@@ -17,7 +17,7 @@ var bindToVote = function () {
             }
         })
     }
-}
+};
 
 var addVoteForTopic = function (id, target) {
 

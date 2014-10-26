@@ -5,7 +5,11 @@ module ApplicationHelper
   end
 
   def prevent_submission
-    Time.now > Time.new(2014, 3, 25, 0, 0, 0, "+05:30")
+    Time.now > Time.parse(Setting.submission_end_time)
+  end
+
+  def prevent_vote?
+    Time.now > Time.parse(Setting.vote_end_time)
   end
 
   def category_options(categories)

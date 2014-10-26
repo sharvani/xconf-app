@@ -64,4 +64,50 @@ describe "ConfigSeed" do
       expect(Category.first.time_in_min).to eq 30
     end
   end
+
+  context "Configure submission end time" do
+    before :each do
+      Rake::Task['config_seed:submission_end_time'].reenable
+    end
+
+    it "should add the submission end time if not already present" do
+      allow(STDIN).to receive(:gets).and_return("Thu Nov 29 14:33:20 IST 2001", "EXIT")
+
+      Rake.application.invoke_task "config_seed:submission_end_time"
+
+      expect(Setting.submission_end_time).to eq "Thu Nov 29 14:33:20 IST 2001"
+    end
+
+    it "should replace the already existing submission end time if present" do
+      Setting.create(name: Setting::Type::SUBMISSION_END_TIME, value: "Thu Nov 29 11:33:20 IST 2001")
+      allow(STDIN).to receive(:gets).and_return("Thu Nov 29 14:33:20 IST 2001", "EXIT")
+
+      Rake.application.invoke_task "config_seed:submission_end_time"
+
+      expect(Setting.submission_end_time).to eq "Thu Nov 29 14:33:20 IST 2001"
+    end
+  end
+
+  context "Configure vote end time" do
+    before :each do
+      Rake::Task['config_seed:vote_end_time'].reenable
+    end
+
+    it "should add the vote end time if not already present" do
+      allow(STDIN).to receive(:gets).and_return("Thu Nov 29 14:33:20 IST 2001", "EXIT")
+
+      Rake.application.invoke_task "config_seed:vote_end_time"
+
+      expect(Setting.vote_end_time).to eq "Thu Nov 29 14:33:20 IST 2001"
+    end
+
+    it "should replace the already existing vote end time if present" do
+      Setting.create(name: Setting::Type::VOTE_END_TIME, value: "Thu Nov 29 11:33:20 IST 2001")
+      allow(STDIN).to receive(:gets).and_return("Thu Nov 29 14:33:20 IST 2001", "EXIT")
+
+      Rake.application.invoke_task "config_seed:vote_end_time"
+
+      expect(Setting.vote_end_time).to eq "Thu Nov 29 14:33:20 IST 2001"
+    end
+  end
 end

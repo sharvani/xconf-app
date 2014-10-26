@@ -47,6 +47,7 @@ group :test do
   gem 'rspec', '~> 3.0.0'
   gem 'rspec-rails', '~> 3.0.2'
   gem 'shoulda-matchers', '~> 2.7.0'
+  gem 'timecop'
 end
 
 # Use ActiveModel has_secure_password

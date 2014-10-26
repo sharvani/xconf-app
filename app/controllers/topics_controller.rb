@@ -8,7 +8,7 @@ class TopicsController < ApplicationController
   end
 
   def new
-    if Time.now > Time.new(2014, 3, 25, 0, 0, 0, "+05:30")
+    if Time.now > Time.parse(Setting.submission_end_time)
       respond_to do |format|
         format.html { render template: 'topics/submission_closed' }
       end
@@ -76,13 +76,12 @@ class TopicsController < ApplicationController
     respond_to do |format|
       format.xls
     end
-
   end
 
   def vote_for
     topic = Topic.find(params[:id])
     user = User.find_or_create_by(name: session[:okta_user])
-    if !topic.voters.include? user
+    unless topic.voters.include? user
       topic.voters << user
     end
     render nothing: true, status: :created
