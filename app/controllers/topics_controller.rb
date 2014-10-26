@@ -15,6 +15,7 @@ class TopicsController < ApplicationController
     else
       @topic = Topic.new
       @current_speakers = session[:okta_user]
+      @categories = Category.all
       respond_to do |format|
         format.html { render partial: 'topics/partials/form' }
       end
@@ -30,7 +31,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params[:topic].permit(:title, :category, :description))
+    @topic = Topic.new(params[:topic].permit(:title, :category_id, :description))
     if @topic.save_with_registerer_and_speakers(session[:okta_user], params[:speakers])
       respond_to do |format|
         format.json { render json: @topic, status: :created }

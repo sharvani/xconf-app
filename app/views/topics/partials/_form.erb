@@ -27,7 +27,7 @@
                     <span class="required">*</span>
                   </div>
                   <div class='col-lg-10 col-md-10 col-sm-9'>
-                    <%= f.select(:category, ['Crisp Talk (10min)', 'Presentation (30min)', 'Workshop/Long Talk (60min)'], {}, {:class => 'form-control'}) %>
+                    <%= f.select :category_id, category_options(@categories), {prompt: 'Select'}, { class: 'form-control'} %>
                   </div>
                 </div>
 
