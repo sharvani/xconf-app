@@ -24,8 +24,8 @@ namespace :config_seed do
   end
 
   desc "configure vote end time"
-  p "Enter the vote end time in the format <Thu Nov 29 10:00:00 IST 2001>"
   task :vote_end_time => :environment do
+    p "Enter the vote end time in the format <Thu Nov 29 10:00:00 IST 2001>"
     submission_end_time = Setting.find_by(name: Setting::Type::VOTE_END_TIME)
     submission_end_time.destroy! if submission_end_time.present?
     Setting.create(name: Setting::Type::VOTE_END_TIME, value: STDIN.gets.strip)
