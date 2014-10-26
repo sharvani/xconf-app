@@ -1,10 +1,4 @@
 var bindToVote = function () {
-
-    if (new Date() > new Date("March 26, 2014 12:00:00")) {
-        $(".vote").addClass('vote-disabled')
-    }
-
-    else {
         $(".vote").click(function (e) {
             e.preventDefault();
             var target = $(this);
@@ -16,7 +10,6 @@ var bindToVote = function () {
                 revokeVoteFromTopic(id, target)
             }
         })
-    }
 };
 
 var addVoteForTopic = function (id, target) {

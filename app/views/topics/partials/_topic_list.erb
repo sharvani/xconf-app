@@ -2,12 +2,14 @@
   <% @topics.zip(@topicUserVoteStatus).each do |topic, status| %>
       <div class='col-lg-4 col-md-4 col-sm-6'>
         <div class='block'>
-          <a class="vote <%= status %> >" data-id="<%= topic.id %>">
+          <% unless prevent_vote? %>
+              <a class="vote <%= status %> >" data-id="<%= topic.id %>">
             <span class="vote-boundary">
               <span class="glyphicon glyphicon-ok"></span>
             </span>
-            <span class="vote-title">Vote</span>
-          </a>
+                <span class="vote-title">Vote</span>
+              </a>
+          <% end %>
 
           <div class="title row">
             <div class="topic-header">
