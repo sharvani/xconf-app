@@ -1,8 +1,12 @@
+require 'base64'
+
 class SamlController < ApplicationController
+  skip_before_action :protected!
 
   def auth
-    auth = request.env['omniauth.auth']
-    session[:user_id] = auth[:uid]
+    response = Onelogin::Saml::Response.new(Base64.decode64(params[:SAMLResponse]))
+    Rails.logger.error response.inspect
+    session[:user_id] = "SET"
     redirect_to params[:RelayState] || '/'
   end
 end
