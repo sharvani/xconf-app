@@ -2,7 +2,7 @@ require 'omniauth'
 require 'omniauth-saml'
 require 'yaml'
 
-OKTA_CONFIGS = YAML.load(File.join(Rails.application.config.root,"config", "okta.yml"))
+OKTA_CONFIGS = YAML.load(File.read(File.join(Rails.application.config.root,"config", "okta.yml")))
 
 
 Rails.application.config.middleware.use OmniAuth::Builder do
