@@ -1,4 +1,4 @@
-class SamlController
+class SamlController < ApplicationController
   def auth
     auth = request.env['omniauth.auth']
     session[:user_id] = auth[:uid]
