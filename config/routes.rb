@@ -20,7 +20,7 @@ XconfApp::Application.routes.draw do
 
   resources :users, :topics, :logout
 
-  match '/saml-auth', controller: 'saml#auth', via: [:post]
+  post '/saml-auth' => 'saml#auth'
 
   #resource :abcd , only: [:post]
 
