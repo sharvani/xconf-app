@@ -17,5 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
+    redirect_to "http://www.thoughtworks.com/"
   end
 end
