@@ -10,12 +10,13 @@ class SessionsController < ApplicationController
 
   def create
     response = Onelogin::Saml::Response.new(Base64.decode64(params[:SAMLResponse]))
-    Rails.logger.error response.to_hash
     session[:user_id] = response.name_id
+    session[:user_name] = "#{response.attributes[:first_name]} #{response.attributes[:last_name]}"
     redirect_to params[:RelayState] || '/'
   end
 
   def destroy
     session[:user_id] = nil
+    session[:user_name] = nil
   end
 end

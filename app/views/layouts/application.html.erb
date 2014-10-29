@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CONF Gurgaon</title>
+  <title>XCONF Bangalore</title>
   <link rel="icon" href="/assets/favicon.ico"/>
   <meta name="viewport" content="width=768px; user-scalable=no">
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
@@ -21,7 +21,7 @@
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3" id="username">
     <div class="dropdown pull-right">
       <div class="dropdown-toggle" data-toggle="dropdown">
-        <span id="name"><%= session[:okta_user] %></span>
+        <span id="name"><%= session[:user_name] %></span>
         <span class="glyphicon glyphicon-cog"></span>
       </div>
       <ul class="dropdown-menu">
