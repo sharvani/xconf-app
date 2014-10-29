@@ -20,12 +20,11 @@ XconfApp::Application.routes.draw do
 
   resources :users, :topics, :logout
 
-  post '/saml-auth' => 'saml#auth'
+  resources :sessions, only: [:new, :create, :destroy]
 
-  #resource :abcd , only: [:post]
+  get '/logout', to: 'sessions#destroy'
 
   root 'topics#index'
-
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
