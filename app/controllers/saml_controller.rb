@@ -6,7 +6,7 @@ class SamlController < ApplicationController
   def auth
     response = Onelogin::Saml::Response.new(Base64.decode64(params[:SAMLResponse]))
     Rails.logger.error response.inspect
-    session[:user_id] = "SET"
+    session[:user_id] = response.name_id
     redirect_to params[:RelayState] || '/'
   end
 end
