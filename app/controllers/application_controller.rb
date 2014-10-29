@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
     def protected!
       return if authorized?
-      redirect to("/auth/saml?redirectUrl=#{URI::encode(request.path)}")
+      redirect_to "/auth/saml?redirectUrl=#{URI::encode(request.path)}"
     end
 
     def authorized?
