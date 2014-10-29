@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    session[:user_name] = nil
+    reset_session
   end
 end
