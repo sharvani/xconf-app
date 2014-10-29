@@ -18,7 +18,7 @@ XconfApp::Application.routes.draw do
     get 'my_topics', to: 'users#my_topics', :on => :collection
   end
 
-  resources :users, :topics, :logout
+  resources :users, :topics
 
   resources :sessions, only: [:new, :create, :destroy]
 
