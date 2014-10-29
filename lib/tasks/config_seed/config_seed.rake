@@ -6,6 +6,7 @@ namespace :config_seed do
     emails.compact.uniq.collect { |email| AdminUser.create(name: email.strip) }
   end
 
+  desc "Add talk seed data"
   task :add_talk_formats => :environment do
     p "Enter the talk format list as a name and time(in minutes) pair <talk_name:talk_time>"
     talks = STDIN.gets.chomp.split(',')
