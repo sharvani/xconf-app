@@ -9,7 +9,7 @@ end
 
 def read_from_csv
   rows = []
-  file = File.read("submissions.csv")
+  file = File.read(ARGF.filename)
   @csv_file = CSV.parse(file, headers: true)
   @csv_file.each do |row|
     rows << row
@@ -30,12 +30,13 @@ csv_rows.map do |csv_row|
   category = Category.find_by(name: csv_attributes[:category])
   topic = Topic.create(title: csv_attributes[:title], description: csv_attributes[:description], category: category)
 
-  registerer = User.find_or_create_by(name: csv_attributes[:username])
+  registerer = User.find_or_create_by(name: csv_attributes[:username], email: csv_attributes[:username])
   registerer.registered_topics << topic
   topic.speakers << registerer
 
-  pair = User.find_or_create_by(name: csv_attributes[:pair])
-  p "User #{pair}"
-  topic.speakers << pair
+  if csv_attributes[:pair].present?
+    pair = User.find_or_create_by(name: csv_attributes[:pair])
+    topic.speakers << pair
+  end
 end
 
