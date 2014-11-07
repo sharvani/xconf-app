@@ -7,9 +7,8 @@ class Topic < ActiveRecord::Base
   belongs_to :registerer, class_name: User
   belongs_to :category
 
-  def save_with_registerer_and_speakers(current_user, speakers)
+  def save_with_registerer_and_speakers(user, speakers)
     if save
-      user = User.find_or_create_by(name: current_user)
       user.registered_topics << self
       self.add_speakers(speakers)
     end
@@ -37,9 +36,8 @@ class Topic < ActiveRecord::Base
   end
 
 
-  def getUserTopicVoteStatus(topics, current_user)
+  def getUserTopicVoteStatus(topics, user)
     @topicUserVoteStatus = []
-    user = User.find_or_create_by(name: current_user)
     topics.each { |topic|
       vote_status = 'vote-open'
       if user.voted_topics.include? topic

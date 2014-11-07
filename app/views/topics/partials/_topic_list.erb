@@ -26,7 +26,7 @@
               <div class="speaker-list">
                 <span><%= convert_array_to_string(topic.speakers) %></span>
               </div>
-              <% if topic.registerer.name == @current_user %>
+              <% if topic.registerer == @current_user %>
                   <div class="dropdown edit-topic">
                     <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                       <span class="glyphicon glyphicon-cog"></span>

@@ -2,8 +2,7 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all
-    @current_user = session[:user_id]
-    @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, @current_user)
+    @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, current_user)
     @all_talks_active = 'active'
   end
 
@@ -14,7 +13,7 @@ class TopicsController < ApplicationController
       end
     else
       @topic = Topic.new
-      @current_speakers = session[:user_id]
+      @current_speakers = current_user.name
       @categories = Category.all
       respond_to do |format|
         format.html { render partial: 'topics/partials/form' }
@@ -24,7 +23,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @has_voted = @topic.voters.pluck(:name).include?(session[:user_id])
+    @has_voted = @topic.voters.include?(current_user)
     respond_to do |format|
       format.html { render partial: '/topics/partials/topic' }
     end
@@ -32,7 +31,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(params[:topic].permit(:title, :category_id, :description))
-    if @topic.save_with_registerer_and_speakers(session[:user_id], params[:speakers])
+    if @topic.save_with_registerer_and_speakers(current_user, params[:speakers])
       respond_to do |format|
         format.json { render json: @topic, status: :created }
       end
@@ -80,9 +79,8 @@ class TopicsController < ApplicationController
 
   def vote_for
     topic = Topic.find(params[:id])
-    user = User.find_or_create_by(name: session[:user_id])
-    unless topic.voters.include? user
-      topic.voters << user
+    unless topic.voters.include? current_user
+      topic.voters << current_user
     end
     render nothing: true, status: :created
   end
@@ -91,11 +89,10 @@ class TopicsController < ApplicationController
     topic = Topic.find(params[:id])
     topic_voters = topic.voters
     topic_voters.each { |voter|
-      if voter.name == session[:user_id]
+      if voter == current_user
         topic_voters.delete(voter)
       end
     }
     render nothing: true, status: :ok
   end
-
 end

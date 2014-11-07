@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   force_ssl
   protect_from_forgery with: :exception
 
+  def current_user
+    user = User.find_by(email: session[:user_id])
+    @current_user ||= user.present? ? user : User.create(email: session[:user_id], name: session[:user_name])
+  end
+
   private
     def protected!
       return if authorized?
