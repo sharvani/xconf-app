@@ -3,7 +3,7 @@
       <div class='col-lg-4 col-md-4 col-sm-6'>
         <div class='block'>
           <% unless prevent_vote? %>
-              <a class="vote <%= status %> >" data-id="<%= topic.id %>">
+              <a class="vote <%= status %>" data-id="<%= topic.id %>">
             <span class="vote-boundary">
               <span class="glyphicon glyphicon-ok"></span>
             </span>
@@ -18,7 +18,7 @@
               </h2>
 
               <h4>
-                <span><%= topic.category.name %></span>
+                <span><%= topic.category.name%> (<%= topic.category.time_in_min %> min)</span>
               </h4>
 
               <div class="description"><%= truncate(topic.description, length: 360) %></div>

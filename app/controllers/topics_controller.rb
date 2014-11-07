@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.all.order('id desc')
+    @topics = Topic.all
     @current_user = session[:user_id]
     @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, @current_user)
     @all_talks_active = 'active'

@@ -56,22 +56,6 @@
         border-color: rgb(38, 189, 207);
       }
     }
-    &.vote-disabled {
-      cursor: default;
-      .vote-boundary {
-        background-color: lightgray;
-      }
-      &:hover {
-        .vote-boundary {
-          border-color: #333;
-        }
-      }
-      &.vote-cast {
-        .vote-boundary {
-          border-color: rgb(38, 189, 207);
-        }
-      }
-    }
   }
   h2 {
     margin: 0;
