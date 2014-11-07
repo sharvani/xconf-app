@@ -20,13 +20,13 @@ describe ApplicationHelper do
 
   context 'admin_user' do
     it 'should return true if the given username is an admin in the system' do
-      AdminUser.create(name: 'admin@admin.com')
+      AdminUser.create(email: 'admin@admin.com', name: 'Admin')
 
-      expect(admin_user('admin@admin.com')).to be_truthy
+      expect(admin_user(User.new(email:'admin@admin.com', name: 'Admin'))).to be_truthy
     end
 
     it 'should return false if the given username is not an admin in the system' do
-      expect(admin_user('admin@admin.com')).to be_falsey
+      expect(admin_user(User.new(email:'admin@admin.com', name: 'Admin'))).to be_falsey
     end
   end
 

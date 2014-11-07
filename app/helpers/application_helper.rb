@@ -17,6 +17,6 @@ module ApplicationHelper
   end
 
   def admin_user(user)
-    AdminUser.exists?(name: user)
+    AdminUser.exists?(email: user.email)
   end
 end
