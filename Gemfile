@@ -38,6 +38,9 @@ gem "bootstrap-sass", "= 3.1.1.0"
 gem 'pry'
 
 gem 'pg'
+
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

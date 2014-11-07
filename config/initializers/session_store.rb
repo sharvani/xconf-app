@@ -1,3 +1,4 @@
 # Be sure to restart your server when you modify this file.
 
-XconfApp::Application.config.session_store :cookie_store, key: '_xconf-app_session'
+#XconfApp::Application.config.session_store :cookie_store, key: '_xconf-app_session'
+XconfApp::Application.config.session_store :active_record_store
