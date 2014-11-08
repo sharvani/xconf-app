@@ -30,12 +30,12 @@ csv_rows.map do |csv_row|
   category = Category.find_by(name: csv_attributes[:category])
   topic = Topic.create(title: csv_attributes[:title], description: csv_attributes[:description], category: category)
 
-  registerer = User.find_or_create_by(name: csv_attributes[:username], email: csv_attributes[:username])
+  registerer = User.find_or_create_by(name: csv_attributes[:name], email: csv_attributes[:username])
   registerer.registered_topics << topic
   topic.speakers << registerer
 
   if csv_attributes[:pair].present?
-    pair = User.find_or_create_by(name: csv_attributes[:pair])
+    pair = User.find_or_create_by(email: csv_attributes[:pair], name: csv_attributes[:pair_name])
     topic.speakers << pair
   end
 end
