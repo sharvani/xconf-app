@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107204531) do
+ActiveRecord::Schema.define(version: 20141109071112) do
 
   create_table "admin_users", force: true do |t|
     t.string   "name"
@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(version: 20141107204531) do
     t.datetime "updated_at"
   end
 
+  add_index "speakers_topics", ["topic_id"], name: "index_speakers_topics_on_topic_id"
+  add_index "speakers_topics", ["user_id"], name: "index_speakers_topics_on_user_id"
+
   create_table "topics", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -56,6 +59,8 @@ ActiveRecord::Schema.define(version: 20141107204531) do
     t.integer  "category_id"
   end
 
+  add_index "topics", ["category_id"], name: "index_topics_on_category_id"
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -63,11 +68,16 @@ ActiveRecord::Schema.define(version: 20141107204531) do
     t.string   "email"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email"
+
   create_table "voters_topics", id: false, force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "topic_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "voters_topics", ["topic_id"], name: "index_voters_topics_on_topic_id"
+  add_index "voters_topics", ["user_id"], name: "index_voters_topics_on_user_id"
 
 end
