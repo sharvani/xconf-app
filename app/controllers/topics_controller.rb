@@ -45,6 +45,7 @@ class TopicsController < ApplicationController
   def edit
     @topic = Topic.find(params[:id])
     @current_speakers = @topic.speakers.pluck(:name).map { |x| x }.join(',')
+    @categories = Category.all
     respond_to do |format|
       format.html { render partial: 'topics/partials/form' }
     end
