@@ -5443,7 +5443,7 @@ h4 {
 .topic-title {
   cursor: pointer;
   word-wrap: break-word;
-  font-size: 28px; }
+  font-size: 25px; }
   .topic-title:hover {
     color: #1a73ba;
     text-decoration: underline; }
