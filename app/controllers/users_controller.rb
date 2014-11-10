@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if current_user.nil?
       []
     else
-      registered_topics = current_user.registered_topics.order('id desc')
+      registered_topics = current_user.topics.order('id desc')
       voted_topics = current_user.voted_topics.order('id desc')
       @topics = registered_topics.concat(voted_topics).uniq
       @topicUserVoteStatus = Topic.new.getUserTopicVoteStatus(@topics, current_user)
