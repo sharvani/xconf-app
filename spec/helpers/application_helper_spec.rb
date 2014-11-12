@@ -18,18 +18,6 @@ describe ApplicationHelper do
     end
   end
 
-  context 'admin_user' do
-    it 'should return true if the given username is an admin in the system' do
-      AdminUser.create(email: 'admin@admin.com', name: 'Admin')
-
-      expect(admin_user(User.new(email:'admin@admin.com', name: 'Admin'))).to be_truthy
-    end
-
-    it 'should return false if the given username is not an admin in the system' do
-      expect(admin_user(User.new(email:'admin@admin.com', name: 'Admin'))).to be_falsey
-    end
-  end
-
   context 'prevent_submission' do
     it 'should return true if the current time has past the submission end time' do
       Setting.create(name: Setting::Type::SUBMISSION_END_TIME, value: 'Thu Nov 29 14:33:20 IST 2001')

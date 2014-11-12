@@ -8,8 +8,8 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
+<body>
 <div id="header" class="row">
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" id="logo">
     <img src="/assets/logo.png"/>
@@ -62,9 +62,9 @@
           <div class="icon-text">My Talks and Votes</div>
         </a>
       </li>
-      <% if admin_user(@current_user) %>
+      <% if @current_user.admin? %>
           <li>
-            <a href="/topics/topics_list.xls">
+            <a href="/topics/topics_list.csv">
               <span class="glyphicon glyphicon-download-alt icon"></span>
 
               <div class="icon-text">Export To CSV</div>

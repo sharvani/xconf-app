@@ -38,7 +38,7 @@ gem "bootstrap-sass", "= 3.1.1.0"
 gem 'pry'
 
 gem 'pg'
-
+gem 'thin'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 group :doc do
